@@ -3,30 +3,68 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Descrizione dello stage}
-\label{cap:descrizione-stage}
-%**************************************************************
-
-\intro{Breve introduzione al capitolo}\\
-
-%**************************************************************
-\section{Introduzione al progetto}
-
-%**************************************************************
-\section{Analisi preventiva dei rischi}
-
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
-
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator} 
-\end{risk}
-
-%**************************************************************
-\section{Requisiti e obiettivi}
-
-
+\chapter{Implementazione del progetto}
+\label{cap:implementazione}
 %**************************************************************
 \section{Pianificazione}
+In questa sezione descrivo la pianificazione del progetto di satge diviso per settimane.
+
+%**************************************************************
+\section{Analisi dei requisiti}
+
+\subsection{Attori}
+In questa sezione descrivo gli attori che interagiranno con l'applicazione.
+
+\subsection{\emph{User Stories}}
+In questa sezione elenco le \emph{user stories} individuate.
+
+\subsection{Requisiti}
+In questa sezione elenco i requisiti individuati.
+
+\subsection{Tracciamento dei requisiti}
+In questa sezione realizzo una tabella per tracciare i requisiti ripetto le \emph{user sories}.
+
+%**************************************************************
+\section{Progettazione architetturale}
+
+\subsection{Introduzione}
+In questa sezione introduco l'architettura \emph{client-server}.
+
+\subsection{Archtettura del \emph{backend}}
+In questa sezione illustro l'architettura del \emph{backend}.
+
+\subsection{Archtettura del \emph{frontend}}
+In questa sezione illustro l'architettura del \emph{frontend}.
+
+\subsection{Struttura del \emph{database}}
+In questa sezione illustro la struttura del \emph{databse}.
+
+%**************************************************************
+\section{Progettazione di dettaglio}
+
+\subsection{API per l'autenticazione}
+In questa sezione descrivo le API necessarie per l'autenticazione di un utente.
+
+\subsection{API per la manipolazione dei dati della griglia}
+In questa sezione descrivo le API per la visualizzazione, la modifica e l'eliminazione dei dati della griglia.
+
+\subsection{Diagrammi di sequenza}
+In questa sezione illustro i diagrammi dii sequenza realativi all'autencazione e alla manipolazione dei dati della griglia.
+
+%**************************************************************
+\section{Sviluppo}
+
+\subsection{Autenticazione}
+In questa sezione illustro la porzione di codice necessaria per l'autenticazione.
+
+\subsection{Griglia del fornitore}
+In questa sezione illustro le porzioni di codice necessarie per la realizzazione della griglia del fornitore.
+
+%**************************************************************
+\section{Verifica e validazione}
+
+\subsection{Analisi statica}
+In questa sezione descrivo gli strumenti utlizzate per l'analisi statica.
+
+\subsection{\emph{Unit Test}}
+In questa sezione descrivo il framwork Jest e illustro i risultati dei test effettuati con la \emph{feature code covarage}.
