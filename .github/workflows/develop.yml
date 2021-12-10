@@ -21,6 +21,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: |
+          apt-get install texlive-binaries texlive-latex-base texlive-fonts-recommended texlive-fonts-extra -y
 
       # Runs a set of commands using the runners shell
       - name: Compile thesis
