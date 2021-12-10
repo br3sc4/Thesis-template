@@ -31,10 +31,11 @@
 
 \documentclass[10pt,                    % corpo del font principale
                a4paper,                 % carta A4
-               twoside,                 % impagina per fronte-retro
+              % twoside,                 % impagina per fronte-retro
                openright,               % inizio capitoli a destra
                english,                 
-               italian,                 
+               italian,  
+               openany               
                ]{book}    
 
 %**************************************************************
@@ -125,9 +126,9 @@
 \frontmatter
 \input{inizio-fine/frontespizio}
 \input{inizio-fine/colophon}
-\input{inizio-fine/dedica}
-\input{inizio-fine/sommario}
-\input{inizio-fine/ringraziamenti}
+%\input{inizio-fine/dedica}
+%\input{inizio-fine/sommario}
+%\input{inizio-fine/ringraziamenti}
 \input{inizio-fine/indici}
 \cleardoublepage
 
@@ -135,20 +136,17 @@
 % Materiale principale
 %**************************************************************
 \mainmatter
-\input{capitoli/capitolo-1}             % Introduzione
-\input{capitoli/capitolo-2}             % Processi
-\input{capitoli/capitolo-3}             % Kick-Off
-\input{capitoli/capitolo-4}             % Concept Preview
-\input{capitoli/capitolo-5}             % Product Prototype
-\input{capitoli/capitolo-6}             % Product Design Freeze e SOP
-\input{capitoli/capitolo-7}             % Conclusioni
-\appendix                               
-\input{capitoli/capitolo-A}             % Appendice A
+\input{capitoli/capitolo-1}             % L'azienda
+\input{capitoli/capitolo-2}             % Lo stage
+\input{capitoli/capitolo-3}             % Implementazione del progetto
+\input{capitoli/capitolo-4}             % Valutazione retrospettiva
+%\appendix                               
+%\input{capitoli/capitolo-A}             % Appendice A
 
 %**************************************************************
 % Materiale finale
 %**************************************************************
-\backmatter
-\printglossaries
-\input{inizio-fine/bibliografia}
+%\backmatter
+%\printglossaries
+%\input{inizio-fine/bibliografia}
 \end{document}
