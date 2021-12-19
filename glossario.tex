@@ -4,8 +4,11 @@
 %**************************************************************
 \renewcommand{\acronymname}{Acronimi e abbreviazioni}
 
-%\newacronym[description={\glslink{apig}{Application Program Interface}}]
-%    {api}{API}{Application Program Interface}
+\newacronym[description={\glslink{aws}{Amazon Web Services}}]
+    {aws}{AWS}{Amazon Web Services}
+
+\newacronym[description={\glslink{api}{Application Program Interface}}]
+    {api}{API}{Application Program Interface}
 %
 %\newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
 %    {uml}{UML}{Unified Modeling Language}
@@ -34,7 +37,23 @@
 \newglossaryentry{mock-up}
 {
     name=\glslink{mock-up}{Mock-Up},
-    text=Mock-Up,
+    text=mock-up,
     sort=mock-up,
     description={Durante la progettazione un \emph{mock-up} è un modello utilizzato, ad esempio, per valutare la bontà della progettazione effettuata o per ottenere dei \emph{feedbacks} da parte dei clienti.}
+}
+
+\newglossaryentry{backend}
+{
+    name=\glslink{backend}{Backend},
+    text=backend,
+    sort=backend,
+    description={Un'applicazione backend è un programma con il quale l'utente interagisce indirettamente, in generale attraverso l'utilizzo di un'applicazione \gls{frontend}. In una struttura client/server il backend è il server.}
+}
+
+\newglossaryentry{frontend}
+{
+    name=\glslink{frontend}{Frontend},
+    text=frontend,
+    sort=frontend,
+    description={Un'applicazione frontend è un programma con il quale l'utente interagisce direttamente. In una struttura client/server il frontend è il client.}
 }
