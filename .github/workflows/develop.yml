@@ -35,6 +35,6 @@ jobs:
         uses: Jodebu/upload-to-drive@master
         with:
           target: ./output/TesiBrescanzinLorenzo.pdf
-          credentials: secrets.GOOGLECREDENTIALS
+          credentials: secrets.GOOGLE_CREDENTIALS
           folder: 1lPjwZB3X8swZLAJA1agvfxE1mMt1KSj5
           
