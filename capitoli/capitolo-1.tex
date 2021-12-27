@@ -56,8 +56,9 @@ Vengono, inoltre, utilizzate le migliori tecnologie in base al progetto richiest
 La metodologia Agile è un approccio iterativo al \emph{project management} che consente ai \emph{team} di sviluppo \
 di consegnare al cliente il prodotto più rapidamente. In particolare, con lo sviluppo Agile, il \emph{team} si presta a \
 lavorare su piccoli incrementi utilizzabili. Ci sono molteplici metodologie che fanno riferimento al \emph{"Agile Manifesto"}, la più diffusa, e utilizzata \
-dall'azienda, è lo \emph{Scrum}. \\
+dall'azienda, è lo \emph{Scrum}.
 
+\subsection{\emph{Scrum}}
 Lo \emph{Scrum} è un \emph{framework} che incoraggia i membri del \emph{team} a lavorare insieme. È basato sul principio dell'apprendimento continuo e sull'adattamento \
 a situazioni che cambiano continuamente, mediante ri-prioritizzazione dei processi e brevi cicli di rilascio, chiamati \textbf{Sprint}, che permettono al \emph{team} di \
 imparare e migliorare. Prima di illustrare come lo \emph{Scrum} venga applicato in Wavelop, è bene introdurre i tre artefatti che sono in continuo aggiornamento durante il progetto:
@@ -92,20 +93,44 @@ nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena co
   \end{figure}
 \vspace{20pt} 
 
-\subsection{Strumenti a supporto dei processi}
+%**************************************************************
+\section{Strumenti a supporto dei processi}
 
-\subsubsection{Git \& GitLab}
-Git è un \emph{Distributed Version Control System}, \emph{open-source} e gratuito, progettato per gestire progetti di \
-grandi e piccole dimensioni con efficienza. \\
+\subsection{Git \& Gitflow Workflow}
+\emph{Git} è un \emph{Distributed Version Control System}, \emph{open-source} e gratuito, progettato per gestire progetti di grandi e piccole dimensioni con efficienza. \
+Per facilitare la gestione della sviluppo in parallelo e prevenire l'avvento di conflitti, l'azienda ha deciso di utilizzare il modello \emph{Gitflow Workflow}. \
+Ogni progetto è costituito da cinque tipi di \emph{branch} diversi: \textbf{\emph{main}}, \textbf{\emph{develop}}, \textbf{\emph{release}}, \textbf{\emph{hotfix}} e \
+\textbf{\emph{feature}}. I \emph{branches} di base e che saranno sempre presenti nel ciclo di vita del progetto sono:
+\begin{itemize}
+  \item \emph{main} nel quale si trova lo storico delle versioni rilasciate in produzione dall'azienda;
+  \item \emph{develop} nel quale troviamo lo storico completo del progetto. 
+\end{itemize}  
 
+I seguenti tipi di \emph{branch}, a differenza dei precedenti, hanno vita limitata: \
+\begin{itemize}
+  \item i \emph{branch} di tipo \emph{feature} sono adibiti allo sviluppo di nuove funzionalità, al termine del quale viene incorporato nel \emph{branch develop}; 
+  \item i \emph{branch} di tipo \emph{release} vengono utilizzati per cominciare un nuovo ciclo di rilascio per una nuova version, al termine del quale viene incorporato nel \
+  \emph{branch main}; 
+  \item i \emph{branch} di tipo \emph{hotfix} sono adibiti alla correzione di piccoli \emph{bug} in produzione, una volta risolto il problema viene incorporato nel \emph{branch main}.
+\end{itemize}
+
+\vspace{20pt}
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[height=8cm, width=12cm]{gitflow-workflow}
+      \caption{Gitflow Workflow}
+      \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
+    \end{center}
+  \end{figure}
+\vspace{20pt} 
+
+\subsection{GitLab}
 GitLab, a differenza di git, è una piattaforma di \emph{hosting} per \emph{git repositories}; inoltre offre diversi servizi \
 per la gestione del progetto, quali:
 
 \begin{itemize}
   \item \emph{Issue Tracking System};
   \item \emph{Project Board}
-  \item \emph{\acrfull{ci}};
-  \item \emph{\acrfull{cd}}.
 \end{itemize}
 
 \subsubsection{\emph{Google Workspace}}
