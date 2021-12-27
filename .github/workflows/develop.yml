@@ -38,3 +38,12 @@ jobs:
           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           folder: 1lPjwZB3X8swZLAJA1agvfxE1mMt1KSj5
           
+      - name: Rename pdf file
+        run: sudo cp ./output/tesi.pdf ./output/TesiBrescanzinLorenzo.pdf
+        
+      - name: Upload thesis file to Google Drive folder
+        uses: Jodebu/upload-to-drive@master
+        with:
+          target: ./output/TesiBrescanzinLorenzo.pdf
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          folder: 1lPjwZB3X8swZLAJA1agvfxE1mMt1KSj5

@@ -4,11 +4,23 @@
 %**************************************************************
 \renewcommand{\acronymname}{Acronimi e abbreviazioni}
 
+\newacronym[description={\glslink{aws}{Amazon Web Services}}]
+    {aws}{AWS}{Amazon Web Services}
+
 \newacronym[description={\glslink{apig}{Application Program Interface}}]
     {api}{API}{Application Program Interface}
 
-\newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
-    {uml}{UML}{Unified Modeling Language}
+\newacronym[description={Model-View-ViewModel}]
+    {mvvm}{MVVM}{Model-View-ViewModel}
+
+\newacronym[description={Continuous Integration}]
+    {ci}{CI}{Continuous Integration}
+
+\newacronym[description={Continuous Delivery}]
+    {cd}{CD}{Continuous Delivery}
+
+\newacronym[description={Internet of Things}]
+    {iot}{IoT}{Internet of Things}
 
 %**************************************************************
 % Glossario
@@ -20,13 +32,53 @@
     name=\glslink{api}{API},
     text=Application Program Interface,
     sort=api,
-    description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
+    description={in informatica con il termine \emph{\acrfull{api}} si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
 }
 
-\newglossaryentry{umlg}
+%\newglossaryentry{umlg}
+%{
+%    name=\glslink{uml}{UML},
+%    text=UML,
+%    sort=uml,
+%    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+%}
+
+\newglossaryentry{mock-up}
 {
-    name=\glslink{uml}{UML},
-    text=UML,
-    sort=uml,
-    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+    name=Mock-Up,
+    text=mock-up,
+    sort=mock-up,
+    description={Durante la progettazione un \emph{mock-up} è un modello utilizzato, ad esempio, per valutare la bontà della progettazione effettuata o per ottenere dei \emph{feedbacks} da parte dei clienti}
+}
+
+\newglossaryentry{backend}
+{
+    name=Backend,
+    text=backend,
+    sort=backend,
+    description={Un'applicazione backend è un programma con il quale l'utente interagisce indirettamente, in generale attraverso l'utilizzo di un'applicazione \gls{frontend}. In una struttura client/server il backend è il server}
+}
+
+\newglossaryentry{open-source}
+{
+    name=Open-Source,
+    text=open-source,
+    sort=open-source,
+    description={Per \emph{software open-source} si intende \emph{software} il cui codice sorgente è disponibile al pubblico, il quale può visionarlo e modificarlo. Il modello \emph{open-source} è un modello di sviluppo decentralizzato che incoraggia la collaborazione}
+}
+
+\newglossaryentry{frontend}
+{
+    name=Frontend,
+    text=frontend,
+    sort=frontend,
+    description={Un'applicazione frontend è un programma con il quale l'utente interagisce direttamente. In una struttura client/server il frontend è il client.}
+}
+
+\newglossaryentry{stakeholder}
+{
+    name=Stakeholder,
+    text=stakeholder,
+    sort=stakeholder,
+    description={Portatori di interesse. Nell’ambito del software, possono essere i clienti, fornitori, finanziatori e banche.}
 }
