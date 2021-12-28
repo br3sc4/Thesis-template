@@ -96,7 +96,7 @@ nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena co
 %**************************************************************
 \section{Strumenti a supporto dei processi}
 
-\subsection{Git \& Gitflow Workflow}
+\subsection{\emph{Git} \& \emph{Gitflow Workflow}}
 \emph{Git} è un \emph{Distributed Version Control System}, \emph{open-source} e gratuito, progettato per gestire progetti di grandi e piccole dimensioni con efficienza. \
 Facendo uso di \emph{way of working} basato su rilasci programmati, l'azienda ha deciso di utilizzare il modello \emph{Gitflow Workflow}. \
 Ogni progetto è costituito da cinque tipi di \emph{branch} diversi: \textbf{\emph{main}}, \textbf{\emph{develop}}, \textbf{\emph{release}}, \textbf{\emph{hotfix}} e \
@@ -124,7 +124,7 @@ I seguenti tipi di \emph{branch}, a differenza dei precedenti, hanno vita limita
   \end{figure}
 \vspace{20pt} 
 
-\subsection{GitLab}
+\subsection{\emph{GitLab}}
 GitLab, a differenza di git, è una piattaforma di \emph{hosting} per \emph{git repositories}; inoltre offre diversi servizi \
 per la gestione del progetto, tra i quali:
 
@@ -151,6 +151,25 @@ apparteneti ad una determinata \emph{milestone} costituiscono lo \emph{sprint ba
 \vspace{20pt} 
 
 \subsubsection{\emph{Project Board}}
+Una \emph{project board} è un raccoglitore di \emph{issues}, organizzate in colonne, utilizzato per una migliore organizzazione del lavoro e per facilitare \
+la verifica dell'avanzamento del progetto. In Wavelop la \emph{project board} è costituita da quattro colonne che indicano lo stato in cui si trova una \emph{issue}:
+
+\begin{itemize}
+  \item \textbf{\emph{Open}:} la \emph{issue} deve ancora essere presa in carico e quindi deve ancora essere implementata;
+  \item \textbf{\emph{Doing}:} la \emph{issue} è stata presa in carico da un componente del \emph{team} ed è in implementazione;
+  \item \textbf{\emph{To Review}:} la \emph{issue} è stata implementata ed è pronta per la revisione da parte del \emph{reviewer}. Sulla base dell'esito di questa attività \
+  la \emph{issue} viene spostata in \emph{Doing}, nel caso di esito negativo, o in \emph{Closed}, in caso di esito positivo;
+  \item \textbf{\emph{Closed}:} la \emph{issue} è stata completata ed è viene aggiunta al \emph{branch develop}.
+\end{itemize}
+
+\vspace{20pt}
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[height=8cm, width=13cm]{project-board}
+      \caption{Esempio di \emph{project board}}
+    \end{center}
+  \end{figure}
+\vspace{20pt} 
 
 \subsubsection{\emph{Merge Request}}
 
