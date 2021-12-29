@@ -16,40 +16,6 @@ alla creazione di \emph{design user-centered}, realizzando \emph{\gls{mock-up}} 
 Vengono, inoltre, utilizzate le migliori tecnologie in base al progetto richiesto.
 
 %**************************************************************
-\section{Tecnologie utilizzate}
-
-\subsection{\emph{\Gls{backend}}}
-
-\begin{itemize}
-  \item \textbf{\emph{TypeScript}}: linguaggio basato su JavaScript, sviluppato da Microsoft, al quale viene aggiunta \
-  la definizione statica dei tipi. Tutto ciò porta ad un rischio minore di \emph{bugs};
-  \item \textbf{\emph{Node.js}}: è un sistema \emph{runtime} per JavaScript orientato agli eventi asincroni, è progettato \
-  per realizzare applicazioni di rete scalabili;
-  \item \textbf{\emph{MongoDB}}: è un \emph{database} NoSQL \emph{document-oriented}, permette di sviluppare applicazioni \
-  flessibili e che possono scalare facilmente;
-  \item \textbf{Servizi \emph{\acrfull{aws}}}: sono i servizi \emph{cloud} forniti da Amazon che comprendono: \
-  \emph{cloud-computing}, archiviazione, \emph{Machine-Learning} e \emph{Internet of Things}. L'azienda utilizza \
-  principalmente: 
-  \begin{itemize}
-    \item AWS Lambda: computazione \emph{serverless};
-    \item AWS DynamoDB: \emph{database} NoSQL;
-    \item AWS API Gateway: creazione di \acrshort{api}.
-  \end{itemize}
-\end{itemize}
-
-\subsection{\emph{\Gls{frontend}}}
-
-\begin{itemize}
-  \item \textbf{\emph{React}}: è una libreria \emph{\gls{open-source}} JavaScript per realizzare interfacce utente. Sfrutta \
-  il principio dello sviluppo per componenti e aggiorna solo i componenti che dipendono dai dati che hanno subito una \
-  variazione;
-  \item \textbf{\emph{Vue}}: è un \emph{framework} JavaScript \emph{open-source}, orientato al \emph{design pattern} \
-  \acrshort{mvvm}, che permette la realizzazione di interfacce utente e \emph{Single Page Application};
-  \item \textbf{\emph{Angular}}: è un \emph{framework open-source} basato su TypeScript sviluppato da Google che permette \
-  di realizzare applicazioni universali per \emph{desktop}, \emph{mobile} e \emph{tablet}.
-\end{itemize}
-
-%**************************************************************
 \section{Processi aziendali}
 
 \subsection{Metodologia Agile}
@@ -58,7 +24,7 @@ di consegnare al cliente il prodotto più rapidamente. In particolare, con lo sv
 lavorare su piccoli incrementi utilizzabili. Ci sono molteplici metodologie che fanno riferimento al \emph{"Agile Manifesto"}, la più diffusa, e utilizzata \
 dall'azienda, è lo \emph{Scrum}.
 
-\subsection{\emph{Scrum}}
+\subsection{Scrum}
 Lo \emph{Scrum} è un \emph{framework} che incoraggia i membri del \emph{team} a lavorare insieme. È basato sul principio dell'apprendimento continuo e sull'adattamento \
 a situazioni che cambiano continuamente, mediante ri-prioritizzazione dei processi e brevi cicli di rilascio, chiamati \textbf{Sprint}, che permettono al \emph{team} di \
 imparare e migliorare. Prima di illustrare come lo \emph{Scrum} venga applicato in Wavelop, è bene introdurre i tre artefatti che sono in continuo aggiornamento durante il progetto:
@@ -80,9 +46,10 @@ terminato, inizia lo \emph{sprint} vero e proprio. In azienda lo \emph{sprint} d
 nello \emph{sprint backlog}. Durante lo \emph{sprint}, ogni mattina prima di iniziare la giornata lavorativa, viene svolto lo \emph{stand up metting}: una brave riunione informale \
 tra i membri del \emph{team}, durante la quale ci si allinea sul lavoro svolto e pianifica il lavoro della giornata. In Wavelop ogni componente del \emph{team} deve rispondere alle \
 seguenti domande: "Cosa ho fatto ieri?", "Cosa farò oggi?", "Ho avuto qualche problema?". Al termine di ogni \emph{sprint}, si svolge una riunione formale tra il \emph{team} e gli \
-\emph{\glspl{stakeholder}} per mostrare il lavoro svolto e per ottenere dei \emph{feedbacks} (\emph{Sprint Review}). Successivamente il \emph{team} svolge un'altra riunione per discutere su cosa migliorare \
-nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso (\emph{Sprint Retrospective}). 
+\emph{\glspl{stakeholder}} per mostrare il lavoro svolto e per ottenere dei \emph{feedbacks} (\emph{Sprint Review}). Successivamente il \emph{team} svolge un'altra riunione per \
+discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso (\emph{Sprint Retrospective}). 
 
+\newpage
 \vspace{20pt}
   \begin{figure}[!ht]
     \begin{center}
@@ -177,6 +144,7 @@ Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambia
 crea una \emph{merge request} e un \emph{feature branch}; una volta che il \emph{reviewer} ha approvato i cambiamenti implementati, il \emph{feature branch} viene unito al contenuto \
 del \emph{branch develop}.
 
+\newpage
 \vspace{20pt}
   \begin{figure}[!ht]
     \begin{center}
@@ -197,6 +165,38 @@ I servizi utilizzati maggiormente dall'azienda sono:
   \item \emph{Meet} per le riunioni con i clienti;
   \item \emph{Google Docs Suite} per la redazione di documentazione e per la realizzazione di presentazioni.
 \end{itemize}
+
+%\subsection{Linguaggi di programmazione}
+%Durante l'implementazione del progetto 
+%
+%\begin{itemize}
+%  \item \textbf{\emph{TypeScript}}: linguaggio basato su JavaScript, sviluppato da Microsoft, al quale viene aggiunta \
+%  la definizione statica dei tipi. Tutto ciò porta ad un rischio minore di \emph{bugs};
+%  \item \textbf{\emph{Node.js}}: è un sistema \emph{runtime} per JavaScript orientato agli eventi asincroni, è progettato \
+%  per realizzare applicazioni di rete scalabili;
+%  \item \textbf{\emph{MongoDB}}: è un \emph{database} NoSQL \emph{document-oriented}, permette di sviluppare applicazioni \
+%  flessibili e che possono scalare facilmente;
+%  \item \textbf{Servizi \emph{\acrfull{aws}}}: sono i servizi \emph{cloud} forniti da Amazon che comprendono: \
+%  \emph{cloud-computing}, archiviazione, \emph{Machine-Learning} e \emph{Internet of Things}. L'azienda utilizza \
+%  principalmente: 
+%  \begin{itemize}
+%    \item AWS Lambda: computazione \emph{serverless};
+%    \item AWS DynamoDB: \emph{database} NoSQL;
+%    \item AWS API Gateway: creazione di \acrshort{api}.
+%  \end{itemize}
+%\end{itemize}
+%
+%\subsection{\emph{\Gls{frontend}}}
+%
+%\begin{itemize}
+%  \item \textbf{\emph{React}}: è una libreria \emph{\gls{open-source}} JavaScript per realizzare interfacce utente. Sfrutta \
+%  il principio dello sviluppo per componenti e aggiorna solo i componenti che dipendono dai dati che hanno subito una \
+%  variazione;
+%  \item \textbf{\emph{Vue}}: è un \emph{framework} JavaScript \emph{open-source}, orientato al \emph{design pattern} \
+%  \acrshort{mvvm}, che permette la realizzazione di interfacce utente e \emph{Single Page Application};
+%  \item \textbf{\emph{Angular}}: è un \emph{framework open-source} basato su TypeScript sviluppato da Google che permette \
+%  di realizzare applicazioni universali per \emph{desktop}, \emph{mobile} e \emph{tablet}.
+%\end{itemize}
 
 %**************************************************************
 \section{Rapporto con l'innovazione}
