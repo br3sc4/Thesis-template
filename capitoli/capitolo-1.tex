@@ -49,16 +49,38 @@ seguenti domande: "Cosa ho fatto ieri?", "Cosa farò oggi?", "Ho avuto qualche p
 \emph{\glspl{stakeholder}} per mostrare il lavoro svolto e per ottenere dei \emph{feedbacks} (\emph{Sprint Review}). Successivamente il \emph{team} svolge un'altra riunione per \
 discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso (\emph{Sprint Retrospective}). 
 
-\newpage
-\vspace{20pt}
+%\newpage
+%\vspace{10pt}
   \begin{figure}[!ht]
     \begin{center}
-      \includegraphics[height=12cm]{sprint-cycle}
+      \includegraphics[height=8cm]{sprint-cycle}
       \caption{Ciclo di uno Sprint}
       \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
     \end{center}
   \end{figure}
-\vspace{20pt} 
+%\vspace{10pt} 
+
+\subsection{Sviluppo}
+Durante la mia permanenza presso l'azienda ho assistito e partecipato al processo di sviluppo, progettando l'architettura del prodotto e implementandola seguendo i principi del \
+\emph{Test-Driven Development}. Per l'azienda è fondamentale mantenere il lavoro ben organizzato, per questo motivo è stato definito un \emph{workflow} da seguire per la gestione \
+delle \emph{issues}. \\
+
+Quando una \emph{issue} viene presa in carico, per prima cosa, viene asseganto lo stato \emph{"Doing"}; viene specificato lo sviluppatore a cui è assegnata e, se non è già presente, \
+viene asseganta la \emph{milestone} dello \emph{sprint} corrente. Prima di iniziarne l'implementazione si devono creare una \emph{merge request} e un \emph{feature branch}, solo dopo \
+si può procedere all'implementazione vera e propria. L'implementazione segue il \emph{Test-Driven Development cycle}, ovvero: per prima cosa si scrive un \emph{test}, si esegue il \
+\emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare, si eseguono tutti i \emph{test} e solo se tutti hanno successo si procede con il \
+\emph{refactoring}, se necessario. Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e richiede una \emph{review}. \
+Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}.
+
+\vspace{10pt}
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[height=8cm, width=13cm]{tdd-cycle}
+      \caption{\emph{Test Driven Development cycle}}
+      \textbf{Fonte:} \href{https://www.wikipedia.org}{wikipedia.org}
+    \end{center}
+  \end{figure}
+\vspace{10pt} 
 
 %**************************************************************
 \section{Strumenti a supporto dei processi}
@@ -81,7 +103,7 @@ I seguenti tipi di \emph{branch}, a differenza dei precedenti, hanno vita limita
   \item i \emph{branch} di tipo \emph{hotfix} sono adibiti alla correzione di piccoli \emph{bug} in produzione, una volta risolto il problema viene incorporato nel \emph{branch main}.
 \end{itemize}
 
-\vspace{20pt}
+\vspace{10pt}
   \begin{figure}[!ht]
     \begin{center}
       \includegraphics[height=8cm, width=12cm]{gitflow-workflow}
@@ -89,7 +111,7 @@ I seguenti tipi di \emph{branch}, a differenza dei precedenti, hanno vita limita
       \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
     \end{center}
   \end{figure}
-\vspace{20pt} 
+\vspace{10pt} 
 
 \subsection{\emph{GitLab}}
 GitLab, a differenza di git, è una piattaforma di \emph{hosting} per \emph{git repositories}; inoltre offre diversi servizi \
@@ -108,14 +130,14 @@ sono le \emph{user stories}. Ogni \emph{issue} è caratterizzata da: un titolo, 
 una stima del tempo che verrà impiegato per implementarla. L'insieme di tutte le \emph{issues} costituesce il \emph{product backlog} mentre tutte le \emph{issues} \
 apparteneti ad una determinata \emph{milestone} costituiscono lo \emph{sprint backlog}.
 
-\vspace{20pt}
+\vspace{10pt}
   \begin{figure}[!ht]
     \begin{center}
       \includegraphics[height=8cm, width=13cm]{issue}
       \caption{Esempio di una \emph{issue}}
     \end{center}
   \end{figure}
-\vspace{20pt} 
+\vspace{10pt} 
 
 \subsubsection{\emph{Project Board}}
 Una \emph{project board} è un raccoglitore di \emph{issues}, organizzate in colonne, utilizzato per una migliore organizzazione del lavoro e per facilitare \
@@ -129,14 +151,14 @@ la verifica dell'avanzamento del progetto. In Wavelop la \emph{project board} è
   \item \textbf{\emph{Closed}:} la \emph{issue} è stata completata ed è viene aggiunta al \emph{branch develop}.
 \end{itemize}
 
-\vspace{20pt}
+\vspace{10pt}
   \begin{figure}[!ht]
     \begin{center}
       \includegraphics[height=8cm, width=13cm]{project-board}
       \caption{Esempio di \emph{project board}}
     \end{center}
   \end{figure}
-\vspace{20pt} 
+\vspace{10pt} 
 
 \subsubsection{\emph{Merge Requests}}
 Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambiamenti prima che essi vengano incorporati nei \emph{branch main} o \emph{develop}. All'interno del \
@@ -144,15 +166,14 @@ Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambia
 crea una \emph{merge request} e un \emph{feature branch}; una volta che il \emph{reviewer} ha approvato i cambiamenti implementati, il \emph{feature branch} viene unito al contenuto \
 del \emph{branch develop}.
 
-\newpage
-\vspace{20pt}
+\vspace{10pt}
   \begin{figure}[!ht]
     \begin{center}
       \includegraphics[height=8cm, width=13cm]{merge-request}
       \caption{Esempio di \emph{merge request}}
     \end{center}
   \end{figure}
-\vspace{20pt} 
+\vspace{10pt} 
 
 \subsection{\emph{Google Workspace}}
 \emph{Google Workspace} è un insieme di strumenti di collaborazione e produttività sviluppato da Google. \
@@ -165,38 +186,6 @@ I servizi utilizzati maggiormente dall'azienda sono:
   \item \emph{Meet} per le riunioni con i clienti;
   \item \emph{Google Docs Suite} per la redazione di documentazione e per la realizzazione di presentazioni.
 \end{itemize}
-
-%\subsection{Linguaggi di programmazione}
-%Durante l'implementazione del progetto 
-%
-%\begin{itemize}
-%  \item \textbf{\emph{TypeScript}}: linguaggio basato su JavaScript, sviluppato da Microsoft, al quale viene aggiunta \
-%  la definizione statica dei tipi. Tutto ciò porta ad un rischio minore di \emph{bugs};
-%  \item \textbf{\emph{Node.js}}: è un sistema \emph{runtime} per JavaScript orientato agli eventi asincroni, è progettato \
-%  per realizzare applicazioni di rete scalabili;
-%  \item \textbf{\emph{MongoDB}}: è un \emph{database} NoSQL \emph{document-oriented}, permette di sviluppare applicazioni \
-%  flessibili e che possono scalare facilmente;
-%  \item \textbf{Servizi \emph{\acrfull{aws}}}: sono i servizi \emph{cloud} forniti da Amazon che comprendono: \
-%  \emph{cloud-computing}, archiviazione, \emph{Machine-Learning} e \emph{Internet of Things}. L'azienda utilizza \
-%  principalmente: 
-%  \begin{itemize}
-%    \item AWS Lambda: computazione \emph{serverless};
-%    \item AWS DynamoDB: \emph{database} NoSQL;
-%    \item AWS API Gateway: creazione di \acrshort{api}.
-%  \end{itemize}
-%\end{itemize}
-%
-%\subsection{\emph{\Gls{frontend}}}
-%
-%\begin{itemize}
-%  \item \textbf{\emph{React}}: è una libreria \emph{\gls{open-source}} JavaScript per realizzare interfacce utente. Sfrutta \
-%  il principio dello sviluppo per componenti e aggiorna solo i componenti che dipendono dai dati che hanno subito una \
-%  variazione;
-%  \item \textbf{\emph{Vue}}: è un \emph{framework} JavaScript \emph{open-source}, orientato al \emph{design pattern} \
-%  \acrshort{mvvm}, che permette la realizzazione di interfacce utente e \emph{Single Page Application};
-%  \item \textbf{\emph{Angular}}: è un \emph{framework open-source} basato su TypeScript sviluppato da Google che permette \
-%  di realizzare applicazioni universali per \emph{desktop}, \emph{mobile} e \emph{tablet}.
-%\end{itemize}
 
 %**************************************************************
 \section{Rapporto con l'innovazione}
