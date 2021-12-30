@@ -9,9 +9,7 @@
 \section{Introduzione}
 Wavelop è un’azienda giovane e innovativa, con sede operativa a Treviso e sede legale a Venezia, che si occupa dello \
 sviluppo di applicazioni web e \emph{mobile} per \emph{startup} e imprese. L’ambiente è informale e dinamico, con un focus \
-alla flessibilità e al lavoro da remoto. \\
-
-L’azienda riesce a soddisfare le richieste dei clienti grazie all’utilizzo della metodologia Agile \emph{Scrum} ed \
+alla flessibilità e al lavoro da remoto. L’azienda riesce a soddisfare le richieste dei clienti grazie all’utilizzo della metodologia Agile \emph{Scrum} ed \
 alla creazione di \emph{design user-centered}, realizzando \emph{\gls{mock-up}} e prototipi per ottenere i risultati più adatti. \
 Vengono, inoltre, utilizzate le migliori tecnologie in base al progetto richiesto.
 
@@ -49,16 +47,13 @@ seguenti domande: "Cosa ho fatto ieri?", "Cosa farò oggi?", "Ho avuto qualche p
 \emph{\glspl{stakeholder}} per mostrare il lavoro svolto e per ottenere dei \emph{feedbacks} (\emph{Sprint Review}). Successivamente il \emph{team} svolge un'altra riunione per \
 discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso (\emph{Sprint Retrospective}). 
 
-%\newpage
-%\vspace{10pt}
-  \begin{figure}[!ht]
-    \begin{center}
-      \includegraphics[height=8cm]{sprint-cycle}
-      \caption{Ciclo di uno Sprint}
-      \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
-    \end{center}
-  \end{figure}
-%\vspace{10pt} 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[height=8cm]{sprint-cycle}
+    \caption{Ciclo di uno Sprint}
+    \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
+  \end{center}
+\end{figure}
 
 \subsection{Sviluppo}
 Durante la mia permanenza presso l'azienda ho assistito e partecipato al processo di sviluppo, progettando l'architettura del prodotto e implementandola seguendo i principi del \
@@ -73,15 +68,13 @@ il \emph{refactoring}, se necessario. Una volta completata l'implementazione, lo
 \emph{merge rerquest} a una delle due persone designate dall'azienda. \
 Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}.
 
-\vspace{10pt}
-  \begin{figure}[!ht]
-    \begin{center}
-      \includegraphics[height=8cm, width=13cm]{tdd-cycle}
-      \caption{\emph{Test Driven Development cycle}}
-      \textbf{Fonte:} \href{https://www.wikipedia.org}{wikipedia.org}
-    \end{center}
-  \end{figure}
-\vspace{10pt} 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[height=8cm, width=13cm]{tdd-cycle}
+    \caption{\emph{Test-Driven Development cycle}}
+    \textbf{Fonte:} \href{https://www.wikipedia.org}{wikipedia.org}
+  \end{center}
+\end{figure}
 
 %**************************************************************
 \section{Strumenti a supporto dei processi}
@@ -130,15 +123,12 @@ sono le \emph{user stories} e sono caratterizzate da: un titolo, una descrizione
 \emph{milestone} (lo \emph{sprint} a cui è asseganta), delle \emph{labels} ai fini di una migliore organizzazione, infine, vengono aggiunti gli \emph{story points} che forniscono \
 una stima del tempo che verrà impiegato per implementarla. L'insieme di tutte le \emph{issues} costituesce il \emph{product backlog} mentre le \emph{issues} \
 apparteneti ad una determinata \emph{milestone} costituiscono lo \emph{sprint backlog}.
-
-\vspace{10pt}
-  \begin{figure}[!ht]
-    \begin{center}
-      \includegraphics[height=8cm, width=13cm]{issue}
-      \caption{Esempio di una \emph{issue}}
-    \end{center}
-  \end{figure}
-\vspace{10pt} 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[height=8cm, width=13cm]{issue}
+    \caption{Esempio di una \emph{issue}}
+  \end{center}
+\end{figure}
 
 \subsubsection{\emph{Project Board}}
 Una \emph{project board} è un raccoglitore di \emph{issues}, organizzate in colonne, utilizzato per una migliore organizzazione del lavoro e per facilitare \
@@ -152,14 +142,12 @@ la verifica dello stato di avanzamento del progetto. In Wavelop la \emph{project
   \item \textbf{\emph{Closed}:} la \emph{issue} è stata completata e viene aggiunta al \emph{branch develop}.
 \end{itemize}
 
-\vspace{10pt}
-  \begin{figure}[!ht]
-    \begin{center}
-      \includegraphics[height=8cm, width=13cm]{project-board}
-      \caption{Esempio di \emph{project board}}
-    \end{center}
-  \end{figure}
-\vspace{10pt} 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[height=8cm, width=13cm]{project-board}
+    \caption{Esempio di \emph{project board}}
+  \end{center}
+\end{figure}
 
 \subsubsection{\emph{Merge Requests}}
 Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambiamenti prima che essi vengano incorporati nei \emph{branch main} o \emph{develop}. All'interno del \
@@ -167,15 +155,14 @@ Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambia
 crea una \emph{merge request} e un \emph{feature branch}; una volta che il \emph{reviewer} ha approvato i cambiamenti implementati, il \emph{feature branch} viene unito al contenuto \
 del \emph{branch develop} e successivamente eliminato.
 
-\vspace{10pt}
-  \begin{figure}[!ht]
-    \begin{center}
-      \includegraphics[height=8cm, width=13cm]{merge-request}
-      \caption{Esempio di \emph{merge request}}
-    \end{center}
-  \end{figure}
-\vspace{10pt} 
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[height=8cm, width=13cm]{merge-request}
+    \caption{Esempio di \emph{merge request}}
+  \end{center}
+\end{figure}
 
+\newpage
 \subsection{\emph{Google Workspace}}
 \emph{Google Workspace} è un insieme di strumenti di collaborazione e produttività sviluppato da Google. \
 I servizi utilizzati maggiormente dall'azienda sono:
