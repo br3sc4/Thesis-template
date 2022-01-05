@@ -21,15 +21,29 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra biber texlive-lang-european -y
 
       # Runs a set of commands using the runners shell
       - name: Compile thesis
-        run: |
-          sh compile-for-linux
-          ls -l output
+        uses: dante-ev/latex-action@latest
+        with:
+          entrypoint: ./compile-for-linux
           
+      - name: Rename pdf file
+        run: sudo cp ./output/tesi.pdf ./output/TesiBrescanzinLorenzo.pdf
+        
+      - name: Upload thesis file to Google Drive folder
+        uses: Jodebu/upload-to-drive@master
+        with:
+          target: ./output/TesiBrescanzinLorenzo.pdf
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          folder: 1lPjwZB3X8swZLAJA1agvfxE1mMt1KSj5
+          
+      - name: Rename pdf file
+        run: sudo cp ./output/tesi.pdf ./output/TesiBrescanzinLorenzo.pdf
+        
+      - name: Upload thesis file to Google Drive folder
+        uses: Jodebu/upload-to-drive@master
+        with:
+          target: ./output/TesiBrescanzinLorenzo.pdf
+          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+          folder: 1lPjwZB3X8swZLAJA1agvfxE1mMt1KSj5

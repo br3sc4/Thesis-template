@@ -31,11 +31,10 @@
 
 \documentclass[10pt,                    % corpo del font principale
                a4paper,                 % carta A4
-              % twoside,                 % impagina per fronte-retro
+               twoside,                 % impagina per fronte-retro
                openright,               % inizio capitoli a destra
                english,                 
-               italian,  
-               openany               
+               italian,             
                ]{book}    
 
 %**************************************************************
@@ -147,6 +146,7 @@
 % Materiale finale
 %**************************************************************
 %\backmatter
-%\printglossaries
+\printglossary[toctitle=Glossario]
+\printglossary[type=\acronymtype, toctitle=Acronimi]
 %\input{inizio-fine/bibliografia}
 \end{document}
