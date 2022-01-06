@@ -18,7 +18,7 @@ l'uso del \emph{software Google Sheets}. A causa di una riduzione del limite men
 di \emph{Google}, ha deciso di abbandonare la soluzione corrente e di procedere con la realizzazione di un \
 \emph{software} indipendente da \emph{Google Sheets}. \\
 
-Le funzionalità richieste da Lago che Wavelop si impegna ad implementare sono le seguenti:
+Le funzionalità richieste da Lago che Wavelop si impegna ad implementare sono le seguenti: \
 \begin{itemize}
   \item la possibilità di bloccare le colonne e impedirne lo \emph{scroll};
   \item la modifica del valore di una cella;
@@ -33,7 +33,7 @@ di \emph{file} allegati.
 \section{Obiettivi}
 
 \subsection{Obiettivi dello stage}
-Nella sottostante sono elencati gli obiettivi prefissati per lo svolgimento dello \emph{stage}, elaborati durante \
+Nella tabella sottostante sono elencati gli obiettivi prefissati per lo svolgimento dello \emph{stage}, elaborati durante \
 i primi incontri con il mio \emph{tutor} aziendale. \
 Sono identificabili tramite una lettera e un numero progressivo; la lettera indica:
 \begin{itemize}
@@ -44,17 +44,16 @@ Sono identificabili tramite una lettera e un numero progressivo; la lettera indi
 \begin{center}
   \begin{table}[h]
     \begin{tabular}{ c | p{\textwidth - 40pt} }
-      \textbf{O01} & Apprendimento delle tecnologie di sviluppo come \emph{React.js}, \emph{NodeJs}, \emph{MongoDB} e \emph{Lerna} \\ \hline
+      \textbf{O01} & Apprendimento delle tecnologie di sviluppo come \emph{React}, \emph{NodeJS}, \emph{MongoDB} e \emph{Lerna} \\ \hline
       \textbf{O02} & Apprendimento della tecnologia di versionamento \emph{Git} \\ \hline
       \textbf{O03} & Apprendimento delle tecnologie di \emph{deployment} \emph{Docker} e \emph{docker-compose} \\ \hline
       \textbf{O04} & Implementazione delle funzionalità di autenticazione \\ \hline
-      \textbf{O05} & Implementazione delle funzionalità realitive alla lista dei fornitori \\ \hline
+      \textbf{O05} & Implementazione delle funzionalità relative alla lista dei fornitori \\ \hline
       \textbf{O06} & Implementazione delle funzionalità relative alla griglia di un fornitore \\ \hline
       \textbf{D01} & Implementazione delle funzionalità relative al caricamento e visualizzazione degli allegati di un ordine \\ \hline
       \textbf{D02} & Implementazione delle funzionalità relative alla gestione degli utenti \\
     \end{tabular}
     \caption{Prospetto degli obiettivi prefissati}
-    \label{table:2.1}
   \end{table}
 \end{center}
 
@@ -64,11 +63,32 @@ In questa sezione descrivo gli obiettivi personali che mi hanno spinto a sceglie
 %**************************************************************
 \section{Vincoli}
 
-\subsection{Vincoli di dominio}
-In questa sezione descrivo i vincoli di dominio del progetto.
-
 \subsection{Vincoli tecnologici}
-In questa sezione descrivo i vincoli tecnologici del progetto.
+Il lingauggio richiesto dall'azienda per la realizzazione del progetto di \emph{stage} è \emph{\textbf{TypeScript}}: \
+un lingauggio basato su \emph{\textbf{JavaScript}} al quale aggiunge il controllo statico dei tipi, diminuendo così la \
+probabilità di eventuali \emph{bugs}. È il liguaggio utilizzato dall'azienda sia lato \emph{\gls{frontend}} che lato \
+\emph{\gls{backend}}. Nonostante \emph{\textbf{JavaScript}} sia un linguaggio nato per lo sviluppo \emph{frontend}, \
+l'esecuzione di \emph{\textbf{TypeScript}} lato \emph{backend} è resa possibile grazie all'utilizzo di \
+\emph{\textbf{NodeJs}}. \emph{\textbf{NodeJs}} è un \emph{runtime \textbf{JavaScript}} con architettura orientata agli \
+eventi e permette l'esecuzione asincrona delle istruzioni; il vantaggio principale nell'utilizzo di questa tecnologia è \
+la sua scalabilità infatti è ampiamente utilizzata per l'implementazione applicazioni di rete. Per l'implementazione del \
+\emph{frontend}, invece, è stato utilizzato \emph{\textbf{React}}: una libreria per la realizzazione di interfacce utente \
+aderente al pradigma dichiarativo. Con questa libreria le interfacce utente sono realizzate mediate due tipi di componenti: \
+\begin{itemize}
+  \item \emph{Function components} che vengono dichirati mediante funzioni;
+  \item \emph{Class-based components} che vengono dichiarati mediante classi.
+\end{itemize}
+Per quanto riguarda l'implementazione di \emph{unit tests} l'azienda ha richiesto l'utilizzo di \emph{\textbf{Jest}}: \
+il framework di \emph{testing} per il lingauggio \emph{\textbf{JavaScript}} più diffuso e che permette facilmente di \
+fare il \emph{mocking} di funzioni e di generare le informazioni di \emph{code coverage}, le quali permettono di \
+valutare la qualità del codice prodotto.
+Per il salvataggio dei dati in modo persistente è stato scelto \emph{\textbf{MongoDB}}. Questo \emph{\acrshort{dbms}} \
+è la soluzione ideale per il progetto che mi è stato asseganto in quanto memorizza i \emph{record}, chiamati \emph{documents}, \
+in formato \emph{\acrshort{json}} e utilizzando anche all'interno dell'applicazione questo formato di rappresentazione \
+dei dati, mi ha permesso di poter utilizzare direttamente di dati risultato della \emph{query} senza la necessità di ulteriori \
+conversioni. Un'altra caratteristica importante è il fatto che si basa su una struttura \emph{schemaless}, \
+ovvero, più \emph{records} possono avere una struttura differente; questo è fondamentale nel contesto dell'applicazione commissionata \
+da Lago in quanto è richiesto che, durante la configurazione di un fornitore, vengano visualizzati campi specifici.
 
 \subsection{Vincoli metodologici}
 In questa sezione descrivo i vincoli metodologici del progetto.
