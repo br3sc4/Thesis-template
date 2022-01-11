@@ -41,14 +41,15 @@ dal \emph{product backlog} le \emph{user stories} che dovranno essere implementa
 prende il nome di \emph{Sprint Planning} e, una volta terminata, inizia lo \emph{sprint} vero e proprio. In azienda lo \emph{sprint} dura due settimane, durante le quali il \
 \emph{team} implementa le \emph{user stories} presenti nello \emph{sprint backlog}. Durante lo \emph{sprint} ogni mattina, prima di iniziare la giornata lavorativa, viene svolto \
 lo \emph{stand up meeting}: una breve riunione informale tra i membri del \emph{team}, durante la quale ci si allinea sul lavoro svolto e si pianifica il lavoro della giornata. \
-Durante l'incontro ogni componente del \emph{team} deve rispondere alle seguenti domande: "Cosa ho fatto ieri?", "Cosa farò oggi?", "Ho avuto qualche problema?". Al termine di ogni \
+L'azienda ha stabilito che durante questa riunione ogni componente del \emph{team} deve rispondere alle seguenti domande: "Cosa ho fatto ieri?", "Cosa farò oggi?", "Ho avuto qualche problema?"; \
+inolte, adottando molto frequentemente il \emph{remote working} la riunione viene svolta sul \emph{server \textbf{Discord}} dell'azienda. Al termine di ogni \
 \emph{sprint}, si svolge una riunione informale tra il \emph{team} e gli \emph{\glspl{stakeholder}} per mostrare il lavoro svolto e per ottenere dei \emph{feedbacks} (\emph{Sprint \
-Review}). Successivamente il \emph{team} svolge un'altra riunione per discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena \
-concluso (\emph{Sprint Retrospective}). 
+Review}). Sulla base dei \emph{feedbacks} ottenuti durante la \emph{Sprint Review} il capo di progetto decide se rilasciare l'incremento oppure no. Successivamente il \emph{team} \
+svolge un'altra riunione per discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso, l'attività viene denominata \emph{Sprint Retrospective}. 
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[height=12cm]{sprint-cycle}
+    \includegraphics[height=11cm]{sprint-cycle}
     \caption{Ciclo di uno Sprint}
     \textbf{Fonte:} \href{https://www.atlassian.com}{atlassian.com}
   \end{center}
@@ -62,8 +63,10 @@ Durante la mia permanenza presso l'azienda ho assistito e partecipato al process
 Quando una \emph{issue} viene presa in carico, per prima cosa, viene assegnato lo stato \emph{"Doing"}, viene specificato lo sviluppatore a cui essa è assegnata e, se non è già presente, \
 viene assegnata la \emph{milestone} dello \emph{sprint} corrente. Prima di iniziarne l'implementazione si devono creare una \emph{merge request} e un \emph{feature branch}, solo dopo \
 si può procedere all'implementazione vera e propria. L'implementazione segue il \emph{\acrlong{tdd} cycle}, ovvero: per prima cosa si scrive un \emph{test}, si esegue il \
-\emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare, successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, \
-si procede con il \emph{refactoring}. Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e assegna la \
+\emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare; vengono svolte queste operazioni fino a quando il \emph{test} non ha successo. \
+Successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, si procede con il \emph{refactoring}. Nel caso qualche \emph{test} fallisca viene \
+scritto il codice per farli passare.
+Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e assegna la \
 \emph{merge rerquest} a una delle due persone designate dall'azienda. \
 Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}.
 
