@@ -65,7 +65,8 @@ viene assegnata la \emph{milestone} dello \emph{sprint} corrente. Prima di inizi
 si può procedere all'implementazione vera e propria. L'implementazione segue il \emph{\acrlong{tdd} cycle}, ovvero: per prima cosa si scrive un \emph{test}, si esegue il \
 \emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare; vengono svolte queste operazioni fino a quando il \emph{test} non ha successo. \
 Successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, si procede con il \emph{refactoring}. Nel caso qualche \emph{test} fallisca viene \
-scritto il codice per farli passare.
+scritto il codice per farli passare; tutte queste attività, in azienda, vengono svolte utilizzando il \emph{framework} di \emph{testing \textbf{Jest}} che, oltre a fornire le primitive per scrivere i \emph{tests}, \
+può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. \
 Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e assegna la \
 \emph{merge rerquest} a una delle due persone designate dall'azienda. \
 Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}.
