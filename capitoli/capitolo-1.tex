@@ -74,14 +74,13 @@ L'implementazione segue il \emph{\acrlong{tdd}}, ovvero: per prima cosa si scriv
 \emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare; vengono svolte queste operazioni fino a quando il \emph{test} non ha successo. \
 Successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, si procede con il \emph{refactoring}. Nel caso qualche \emph{test} fallisca viene \
 scritto il codice per farli passare; tutte queste attività, in azienda, vengono svolte utilizzando il \emph{framework} di \emph{testing \textbf{Jest}} che, oltre a fornire le primitive per scrivere i \emph{tests}, \
-può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. La porzione di codice sottostante è un esempio \emph{test} scritto durante lo sviluppo.
+può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. La porzione di codice sottostante è un esempio \emph{test} scritto durante lo sviluppo aderendo al \acrshort{tdd}.
 
 \begin{lstlisting}[caption=Esempio di \emph{test}, captionpos=b]
   describe("Testing SupplierService", () => {
     const repo = new SupplierRepository();
 
     beforeAll(async () => {
-      await container.get(MongoConnection).init();
       await repo.deleteAll();
       await repo.insert({
         name: "Primo fornitore",
@@ -89,10 +88,6 @@ può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valu
         columns: []
       });
       return 
-    })
-
-    afterAll(() => {
-      return container.get(MongoConnection).close();
     })
 
     it("Get all suppliers should success", async () => {
