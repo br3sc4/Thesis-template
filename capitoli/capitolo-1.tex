@@ -34,7 +34,7 @@ Un esempio reale di \emph{user story} scritta durante il mio \emph{stage} è il 
 
 Ad ogni \emph{user story} il redattore aggiunge i \emph{tasks} da eseguire per ottenere il risultato richiesto e, inoltre, stima gli \emph{story points}, ovvero il carico di lavoro \
 stimato. Successivamente le \emph{user stories} vengono importate in \emph{GitLab} sotto forma di \emph{issues}, questa lista costituisce il \emph{product backlog}. \
-A questo punto il \emph{team} è pronto per iniziare lo \emph{sprint cycle}. \\
+A questo punto il \emph{team} è pronto per iniziare il primo \emph{sprint}. \\
 
 \begin{figure}[!ht]
   \begin{center}
@@ -56,7 +56,7 @@ Review}). Sulla base dei \emph{feedbacks} ottenuti durante la \emph{Sprint Revie
 svolge un'altra riunione per discutere su cosa migliorare nel prossimo \emph{sprint} e su cosa ha funzionato nello \emph{sprint} appena concluso, l'attività viene denominata \emph{Sprint Retrospective}. \
 In Wavelop, durante la \emph{Sprint Retrospective}, viene inoltre creato un foglio di calcolo dove vengono inseriti i valori relative a tutte le \emph{user stories} implementate: in particolare \
 si valuta la bontà della pianificazione di ogni \emph{user story}. Questo è reso possibile grazie al rendiconto delle ore per ogni singola \emph{issue}, questo valore viene inserito nel foglio di calcolo \
-e viene calcolato il valore equivale in \emph{story points}; successivamente, il \emph{software} effettua il confronto con il valore pianificato in precedenza. In base all'esito del confronto il \emph{team} \
+e viene calcolato il valore equivalent in \emph{story points}; successivamente, il \emph{software} effettua il confronto con il valore pianificato in precedenza. In base all'esito del confronto il \emph{team} \
 può capire se ha svolto una buona pianificazione o meno.
 
 \subsection{Sviluppo}
@@ -66,22 +66,51 @@ Durante la mia permanenza presso l'azienda ho assistito e partecipato al process
 
 Quando una \emph{issue} viene presa in carico, per prima cosa, viene assegnato lo stato \emph{"Doing"}, viene specificato lo sviluppatore a cui essa è assegnata e, se non è già presente, \
 viene assegnata la \emph{milestone} dello \emph{sprint} corrente. Prima di iniziarne l'implementazione si devono creare una \emph{merge request} e un \emph{feature branch}, solo dopo \
-si può procedere all'implementazione vera e propria. L'implementazione segue il \emph{\acrlong{tdd} cycle}, ovvero: per prima cosa si scrive un \emph{test}, si esegue il \
+si può procedere all'implementazione vera e propria. Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e assegna la \
+\emph{merge rerquest} a una delle due persone designate dall'azienda. \
+Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}. \\
+
+L'implementazione segue il \emph{\acrlong{tdd}}, ovvero: per prima cosa si scrive un \emph{test}, si esegue il \
 \emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare; vengono svolte queste operazioni fino a quando il \emph{test} non ha successo. \
 Successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, si procede con il \emph{refactoring}. Nel caso qualche \emph{test} fallisca viene \
 scritto il codice per farli passare; tutte queste attività, in azienda, vengono svolte utilizzando il \emph{framework} di \emph{testing \textbf{Jest}} che, oltre a fornire le primitive per scrivere i \emph{tests}, \
-può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. \
-Una volta completata l'implementazione, lo sviluppatore modifica lo stato della \emph{issue} in \emph{"To Review"} e assegna la \
-\emph{merge rerquest} a una delle due persone designate dall'azienda. \
-Solo in caso di esito positivo si procede con l'aggiunta dei cambiamenti al \emph{branch develop} e la chiusura della \emph{issue} assegnandole lo stato \emph{"Closed"}.
+può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. La porzione di codice sottostante è un esempio \emph{test} scritto durante lo sviluppo.
 
-\begin{figure}[!ht]
-  \begin{center}
-    \includegraphics[height=8cm, width=13cm]{tdd-cycle}
-    \caption{\emph{Test-Driven Development cycle}}
-    \textbf{Fonte:} \href{https://www.wikipedia.org}{wikipedia.org}
-  \end{center}
-\end{figure}
+\begin{lstlisting}[caption=Esempio di \emph{test}, captionpos=b]
+  describe("Testing SupplierService", () => {
+    const repo = new SupplierRepository();
+
+    beforeAll(async () => {
+      await container.get(MongoConnection).init();
+      await repo.deleteAll();
+      await repo.insert({
+        name: "Primo fornitore",
+        code: "123456789",
+        columns: []
+      });
+      return 
+    })
+
+    afterAll(() => {
+      return container.get(MongoConnection).close();
+    })
+
+    it("Get all suppliers should success", async () => {
+      const service = new SupplierService(repo);
+      const result = await service.findAll();
+
+      return expect(result.length).toBe(1);
+    })
+  })
+\end{lstlisting}
+
+% \begin{figure}[!ht]
+%   \begin{center}
+%     \includegraphics[height=8cm, width=13cm]{tdd-cycle}
+%     \caption{\emph{Test-Driven Development cycle}}
+%     \textbf{Fonte:} \href{https://www.wikipedia.org}{wikipedia.org}
+%   \end{center}
+% \end{figure}
 
 %**************************************************************
 \section{Strumenti a supporto dei processi}
