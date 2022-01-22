@@ -8,10 +8,10 @@
 %**************************************************************
 \section{L'azienda}
 Wavelop è un'azienda giovane e innovativa, con sede operativa a Treviso e sede legale a Venezia, che si occupa dello \
-sviluppo di applicazioni web e \emph{mobile} per \emph{startup} e imprese. L'ambiente è informale e dinamico, con un focus \
-alla flessibilità e al lavoro da remoto. L'azienda riesce a soddisfare le richieste dei clienti grazie \
-alla creazione di \emph{design user-centered}, realizzando \emph{\gls{mock-up}} e prototipi per ottenere i risultati più adatti, e soprattutto \
-grazie all'utilizzo della metodologia Agile \emph{Scrum}.
+sviluppo di applicazioni web e \emph{mobile}. L'ambiente è informale e dinamico, con un focus alla flessibilità e al lavoro da remoto. \
+Il \emph{business model} di Wavelop è orientato alla consulenza nel settore \emph{IT}, con l'intento di trasformare idee ambiziose in prodotti \emph{software}. \
+Tutto il lavoro viene svolto a stretto contatto con aziende e \emph{startup}, definendo \emph{design user-centered}, realizzando \emph{\gls{mock-up}} e prototipi per ottenere i risultati più adatti, \
+impiegando le migliori tecnologie sul mercato e soprattutto grazie all'utilizzo della metodologia Agile \emph{Scrum}.
 
 %**************************************************************
 \section{Processi aziendali}
@@ -76,16 +76,17 @@ L'implementazione segue il \emph{\acrlong{tdd}}, ovvero: per prima cosa si scriv
 \emph{test}, se fallisce si procede a scrivere il codice necessario per farlo passare; vengono svolte queste operazioni fino a quando il \emph{test} non ha successo. \
 Successivamente, si eseguono tutti i \emph{test} e solo se tutti hanno successo, se necessario, si procede con il \emph{refactoring}. Nel caso qualche \emph{test} fallisca viene \
 scritto il codice per farli passare; tutte queste attività, in azienda, vengono svolte utilizzando il \emph{framework} di \emph{testing \textbf{Jest}} che, oltre a fornire le primitive per scrivere i \emph{tests}, \
-può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. Un \emph{test} viene definito grazie all'utilizzo di queste \emph{keywords}:
+può calcolare i dati di \emph{code coverage} consentendo al \emph{team} di valutare la qualità del codice prodotto. La porzione di codice \ref{code:test} fornisce un esempio di \emph{test} scritto durante lo sviluppo. \
+Come si può notare un \emph{test} viene definito grazie all'utilizzo di queste \emph{keywords}:
 \begin{itemize}
   \item \textbf{\emph{describe}:} permette di raggruppare più \emph{test} in base al contesto;
   \item \textbf{\emph{it}:} definisce il singolo test;
   \item \textbf{\emph{expect}:} definisce il risultato atteso, dal quale dipende il fallimento, o il successo, del \emph{test};
   \item \textbf{\emph{beforeAll}, \emph{beforeEach}, \emph{afterAll} e \emph{afterEach}:} definiscono delle operazioni che vengono eseguite prima o dopo tutti i \emph{tests} oppure prima o dopo ogni \emph{test} in base alla \emph{keyword} usata.
 \end{itemize}
-La porzione di codice sottostante è un esempio \emph{test} scritto durante lo sviluppo aderendo al \acrshort{tdd}.
+
 \newpage
-\begin{lstlisting}[caption=Esempio di \emph{test}, captionpos=b]
+\begin{lstlisting}[caption=Esempio di \emph{test}, label={code:test}, captionpos=b]
   describe("Testing SupplierService", () => {
     const repo = new SupplierRepository();
 
@@ -202,9 +203,9 @@ la verifica dello stato di avanzamento del progetto. In Wavelop, come si può os
 Le \emph{merge requests} vengono utilizzate per tracciare e revisionare i cambiamenti prima che essi vengano incorporati nei \emph{branch main} o \emph{develop}. All'interno del \
 \emph{way of working} di Wavelop, vengono utilizzate anche per discutere di ciò che è stato implementato e di modifiche da apportare. Quando si prende in carico una \emph{issue}, si \
 crea una \emph{merge request} e un \emph{feature branch}; una volta che il \emph{reviewer} ha approvato i cambiamenti implementati, il \emph{feature branch} viene unito al contenuto \
-del \emph{branch develop} e successivamente eliminato.
-
+del \emph{branch develop} e successivamente eliminato. \
 La Figura \ref{fig:mr} mostra la struttura delle \emph{merge requests} in \textbf{\emph{GitLab}}.
+
 \begin{figure}[!ht]
   \begin{center}
     \includegraphics[scale=0.19, width=\textwidth]{merge-request}
