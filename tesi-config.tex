@@ -146,17 +146,30 @@
 %**************************************************************
 % Impostazioni di listings
 %**************************************************************
+\renewcommand\lstlistingname{Codice}
+\renewcommand\lstlistlistingname{Esempi di codice}
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, async, await, const, let},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
 \lstset{
-    language=[LaTeX]Tex,%C++,
-    keywordstyle=\color{RoyalBlue}, %\bfseries,
-    basicstyle=\small\ttfamily,
-    %identifierstyle=\color{NavyBlue},
+    language=JavaScript,
+    frame=b,
+    keywordstyle=\color{NavyBlue}\bfseries,
+    ndkeywordstyle=\bfseries,
+    basicstyle=\footnotesize\ttfamily,
+    identifierstyle=\color{Black},
     commentstyle=\color{Green}\ttfamily,
-    stringstyle=\rmfamily,
-    numbers=none, %left,%
-    numberstyle=\scriptsize, %\tiny
-    stepnumber=5,
-    numbersep=8pt,
+    stringstyle=\color{Dandelion}\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
     showstringspaces=false,
     breaklines=true,
     frameround=ftff,
