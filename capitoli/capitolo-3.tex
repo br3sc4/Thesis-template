@@ -9,16 +9,77 @@
 \section{Analisi dei requisiti}
 
 \subsection{Attori}
-In questa sezione descrivo gli attori che interagiranno con l'applicazione.
+Nella figura \ref{fig:attori} è riportato il diagramma \emph{\acrshort{uml}} che descrive la gerarchia degli attori del sistema. Dopo un'attenta analisi ho individuato: cinque \
+attori principali e uno secondario. Gli attori principali da me individuati sono: l'utente non autenticato, l'utente non autorizzato, l'utente \
+di tipo fornitore, l'utente di tipo lago e l'utente di tipo lago \emph{admin}. L'unico utente secondario che ho individuato è Google, in quanto all'interno del sistema \
+utilizziamo \emph{Google SSO} come servizio di autenticazione. 
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=0.5]{usecase/attori}
+    \caption{Gerarchia degli attori di sistema}
+    \label{fig:attori}
+  \end{center}
+\end{figure}
+
+\subsection{Casi d'uso}
+Durante l'attività di analisi ho definito diversi diagrammi dei casi d'uso mediante il linguaggio \emph{\acrshort{uml}}. Tutti i diagrammi sono contenuti all'interno \
+del documento di analisi aziendale. In questa sezione mostrerò solo il caso d'uso più generale per dare un'idea di ciò che è possibile fare all'interno \
+dell'applicazione. Ogni caso d'uso segue la seguente denominazione:
+
+\begin{center}
+  UC[codice]
+\end{center}
+
+dove per [codice] si intende un identificativo univoco del caso d'uso riportato in forma gerarchica. Per ogni caso d'uso, inoltre, vengono specificati:
+\begin{itemize}
+  \item Gli attori coinvolti;
+  \item Una breve descrizione;
+  \item La precondizione;
+  \item La postcondizione;
+  \item Lo scenario principale;
+  \item Le eventuali estensioni.
+\end{itemize}
+
+\subsubsection{Caso d'uso UC0 - Scenario principale}
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=0.35]{usecase/main-scenario}
+    \caption{UC0: Scenario principale}
+    \label{fig:uc0}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Attori:} utente non autenticato, utente autenticato, utente di tipo fornitore, utente di tipo lago e utente di tipo lago \emph{admin};
+  \item \textbf{Descrizione:} nella schermata principale un utente non autenticato può autenticarsi, o registrarsi, tramite l'apposito pulsante che reindirizza l'utente al \emph{form} di Google. Un utente non autorizzato può effettuare il \emph{logout} dalla piattaforma. Un utente di tipo fornitore, oltre alle funzionalità dell'utente non autorizzato, ha la possibilità di:\
+    \begin{itemize}
+      \item visualizzare la \emph{dashboard};
+      \item modificare una riga;
+      \item effettuare la ricerca mediante filtri;
+      \item effettuare la modifica multipla di cella;
+      \item visualizzare gli allegati relativi ad un ordine.
+    \end{itemize}
+    Un utente di tipo lago, oltre alle funzionalità dell'utente fornitore, può visualizzare la lista dei fornitori. Un utente di tipo lago \emph{admin}, infine, oltre alle funzionalità dell'utente lago, può visualizzare la lista degli utenti registrati sulla piattaforma;
+  \item \textbf{Precondizione:} il sistema è avviato e mostra la pagina principale dell'applicazione;
+  \item \textbf{Postcondizione:} il sistema ha ricevuto tutte le informazioni dall'utente sulle operazioni che vuole eseguire;
+  \item \textbf{Scenario principale:} 
+    \begin{itemize}
+      \item L'utente non autenticato può effettuare la registrazione alla piattaforma (UC1);
+      \item L'utente non autenticato può effettuare l'autenticazione (UC2);
+      \item L'utente non autorizzato, l'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono effettuare il \emph{logout} (UC3);
+      \item L'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono visualizzare la \emph{dashboard} (UC4);
+      \item L'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono modificare un campo di un ordine (UC5);
+      \item L'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono effettuare la ricerca mediante filtri (UC6);
+      \item L'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono effettuare la modifica multipla di ordini (UC7);
+      \item L'utente di tipo fornitore, l'utente di tipo lago e l'utente di tipo \emph{admin} possono visualizzare gli allegati di un ordine (UC8);
+      \item L'utente di tipo lago e l'utente di tipo \emph{admin} possono visualizzare la lista dei fornitori (UC9);
+      \item L'utente di tipo lago \emph{admin} può visualizzare la lista degli utenti registrati nella piattaforma (UC10).
+    \end{itemize}
+\end{itemize}
 
 \subsection{\emph{User Stories}}
-In questa sezione elenco le \emph{user stories} individuate.
 
-\subsection{Requisiti}
-In questa sezione elenco i requisiti individuati.
-
-\subsection{Tracciamento dei requisiti}
-In questa sezione realizzo una tabella per tracciare i requisiti ripetto le \emph{user sories}.
 
 %**************************************************************
 \section{Progettazione architetturale}
@@ -45,7 +106,7 @@ In questa sezione descrivo le API necessarie per l'autenticazione di un utente.
 In questa sezione descrivo le API per la visualizzazione, la modifica e l'eliminazione dei dati della griglia.
 
 \subsection{Diagrammi di sequenza}
-In questa sezione illustro i diagrammi di sequenza realativi all'autencazione e alla manipolazione dei dati della griglia.
+In questa sezione illustro i diagrammi di sequenza relativi all'autenticazione e alla manipolazione dei dati della griglia.
 
 %**************************************************************
 \section{Codifica}
@@ -60,10 +121,10 @@ In questa sezione illustro le porzioni di codice necessarie per la realizzazione
 \section{Verifica e validazione}
 
 \subsection{Analisi statica}
-In questa sezione descrivo gli strumenti utlizzate per l'analisi statica.
+In questa sezione descrivo gli strumenti utilizzate per l'analisi statica.
 
 \subsection{\emph{Unit Test}}
-In questa sezione descrivo il framwork Jest e illustro i risultati dei test effettuati con la \emph{feature code covarage}.
+In questa sezione descrivo il framework Jest e illustro i risultati dei test effettuati con la \emph{feature code covarage}.
 
 %**************************************************************
 \section{Prodotto finale}
