@@ -79,7 +79,113 @@ dove per [codice] si intende un identificativo univoco del caso d'uso riportato 
 \end{itemize}
 
 \subsection{\emph{User Stories}}
+Grazie alla definizione dei casi d'uso ho estratto le \emph{user stories} che ho implementato durante il periodo di \emph{stage}. Di seguito sono riportate quelle relative alle funzionalità principali.
 
+\subsubsection{Login con \emph{Google SSO} (5)}
+Come utente non autenticato voglio poter accedere alla piattaforma mediante \emph{Google SSO}. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Creazione \emph{collection users};
+      \item Implementazione chiamata \emph{\acrshort{api}} di \emph{Google SSO};
+      \item Se l'utente non è presente, memorizzare il \emph{token} e metterlo in \emph{"pending"};
+      \item Verifica della validità del \emph{token}.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Implementazione della chiamata all'\emph{\acrshort{api}} di \emph{login} del \emph{\gls{backend}};
+      \item Creazione della sessione utente;
+      \item Reindirizzamento alla \emph{dashboard}.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Visualizzazione lista fornitori (5)}
+Come utente Lago voglio visualizzare la lista di tutti i fornitori abilitati. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Creazione \emph{collection suppliers};
+      \item Verifica dei permessi di esecuzione dell'\emph{\acrshort{api}};
+      \item Implementazione dell'\emph{\acrshort{api} "get suppliers"}.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Implementazione della chiamata all'\emph{\acrshort{api} "get suppliers"} del \emph{\gls{backend}};
+      \item Visualizzazione della lista dei fornitori.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Visualizzazione fornitore (5)}
+Come utente Lago o utente di tipo fornitore voglio visualizzare la griglia di un fornitore. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Definizione della struttura della configurazione di una colonna;
+      \item Definizione della struttura della configurazione per il contenuto della colonna;
+      \item Creazione \emph{collection order-rows};
+      \item Verifica dei permessi di esecuzione dell'\emph{\acrshort{api}};
+      \item Implementazione dell'\emph{\acrshort{api} "get order-rows"} di un fornitore.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Implementazione della chiamata all'\emph{\acrshort{api} "get order-rows"} del \emph{\gls{backend}};
+      \item Visualizzazione della griglia con i dati degli ordini di un fornitore.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Modifica dei campi di un ordine (5)}
+Come utente Lago o utente di tipo fornitore voglio poter modificare un campo di un ordine. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Verifica dei permessi di esecuzione dell'\emph{\acrshort{api}};
+      \item Implementazione dell'\emph{\acrshort{api} "update order-row"} per un ordine di un fornitore.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Validazione del campo modificato;
+      \item Visualizzazione di un errore in caso di valore non valido;
+      \item Implementazione della chiamata all'\emph{\acrshort{api} "update order-row"} del \emph{\gls{backend}};
+      \item Visualizzazione della griglia con i dati degli ordini aggiornati.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Visualizzazione della lista degli utenti (5)}
+Come utente Lago \emph{admin} voglio poter visualizzare la lista degli utenti registrati. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Verifica dei permessi di esecuzione dell'\emph{\acrshort{api}};
+      \item Implementazione dell'\emph{\acrshort{api} "get users"}.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Implementazione della chiamata all'\emph{\acrshort{api} "get users"} del \emph{\gls{backend}};
+      \item Visualizzazione della lista degli utenti.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Visualizzazione della lista degli allegati (5)}
+Come utente Lago o utente di tipo fornitore voglio poter visualizzare la lista degli allegati relativi ad un ordine. \\
+\emph{Tasks:}
+\begin{itemize}
+  \item \emph{\gls{backend}}:
+    \begin{itemize}
+      \item Verifica dei permessi di esecuzione dell'\emph{\acrshort{api}};
+      \item Implementazione del sistema per l'invio dei file allegati da visualizzare;
+      \item Implementazione dell'\emph{\acrshort{api} "get attachments"} di un ordine.
+    \end{itemize}
+  \item \emph{\gls{frontend}}:
+    \begin{itemize}
+      \item Implementazione della chiamata all'\emph{\acrshort{api} "get attachments"} del \emph{\gls{backend}};
+      \item Visualizzazione della lista degli allegati di un ordine.
+    \end{itemize}
+\end{itemize}
 
 %**************************************************************
 \section{Progettazione architetturale}
