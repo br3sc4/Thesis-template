@@ -190,8 +190,32 @@ Come utente Lago o utente di tipo fornitore voglio poter visualizzare la lista d
 %**************************************************************
 \section{Progettazione architetturale}
 
-\subsection{Introduzione}
-In questa sezione introduco l'architettura \emph{client-server}.
+\subsection{Architettura di sitema}
+L'applicazione è costituita da due parti principali: il \emph{\gls{frontend}} e il \emph{\gls{backend}} che costituiscono rispettivamente il \emph{client} e il \emph{server} nell'architettura \emph{client-server}. \
+All'interno di questa architettura, il \emph{\gls{frontend}} ha il compito interagire con l'utente e di mostrare i dati ottenuti dal \emph{server}. Il \emph{\gls{backend}}, invece, fornisce le \emph{\acrshort{api}} \
+per poter svolgere determinate operazioni e ottenerne i risultati. Entrambi i componenti sono indipendenti tra loro e comunicano utilizzando le richieste \emph{\acrshort{http}}, possono essere di diversi tipi, a \
+seconda dell'operazione che intendiamo svolgere: 
+\begin{itemize}
+  \item \emph{GET}: per ottenere dei dati dal \emph{server};
+  \item \emph{POST}: per caricare dei dati sul \emph{server};
+  \item \emph{PUT}: per aggiornare dei dati sul \emph{server};
+  \item \emph{DELETE}: per eliminare dei dati sul \emph{server}.
+\end{itemize} 
+
+Come si evince dalla figura \ref{fig:general-design}, che mostra lo schema architetturale generale, l'applicazione è costituita da tre \emph{packages} principali:
+\begin{itemize}
+  \item \textbf{\emph{lago-edi-api}:} contiene i \emph{packages} necessari per il funzionamento del \emph{\gls{backend}};
+  \item \textbf{\emph{lago-edi-ui}:} contiene i \emph{packages} necessari per il funzionamento del \emph{\gls{frontend}};
+  \item \textbf{\emph{lago-edi-commons}:} contiene i \emph{packages} che vengono riutilizzati sia nel \emph{\gls{backend}} che nel \emph{\gls{frontend}}.
+\end{itemize}
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=1, width=\textwidth]{design/general}
+    \caption{Architettura generale dell'applicazione}
+    \label{fig:general-design}
+  \end{center}
+\end{figure}
 
 \subsection{Architettura del \emph{backend}}
 In questa sezione illustro l'architettura del \emph{backend}.
