@@ -235,8 +235,24 @@ Addentrandoci nell'architettura del \emph{\gls{backend}}, come mostrato nella fi
   \end{center}
 \end{figure}
 
-\subsection{Architettura del \emph{frontend}}
-In questa sezione illustro l'architettura del \emph{frontend}.
+\subsection{Architettura del \emph{\gls{frontend}}}
+Per quanto concerne il \emph{\gls{frontend}}, l'architettura è rappresentata nella figura \ref{fig:fe-design}. \
+Il \emph{package} \textbf{lago-edi-ui} è composto dai seguenti \emph{subpackages}:
+\begin{itemize}
+  \item \textbf{\emph{views}:} contiene tutte le pagine che il \emph{\gls{frontend}} deve mostrare all'utente;
+  \item \textbf{\emph{contexts}:} contiene tutte le classi per gestire lo stato globale;
+  \item \textbf{\emph{services}:} contiene tutti i componenti necessari per ottenere i dati dal \emph{\gls{backend}};
+  \item \textbf{\emph{components}:} contiene tutti i componenti necessari per il \emph{rendering} delle pagine;
+  \item \textbf{\emph{interfaces}:} contiene tutte le interfacce per la configurazione dei componenti della \emph{view}.
+\end{itemize}
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=1, width=\textwidth]{design/frontend}
+    \caption{Architettura del \emph{\gls{frontend}}}
+    \label{fig:fe-design}
+  \end{center}
+\end{figure}
 
 \subsection{Struttura del \emph{database}}
 In questa sezione illustro la struttura del \emph{databse}.
