@@ -7,16 +7,19 @@
 \label{cap:implementazione}
 %**************************************************************
 \section{Analisi dei requisiti}
+In questa sezione descrivo gli attori di sistema e come ho svolto l'analisi dei requisiti.
+Quest'ultima, a sua volta, è suddivisa in due sotto-attività che sono: lo studio dei casi d'uso e la redazione delle \emph{user stories}.
+Per ognuna esse dedico una sezione e riporto solo le parti più rilevanti.
 
 \subsection{Attori}
 Nella figura \ref{fig:attori} è riportato il diagramma \emph{\acrshort{uml}} che descrive la gerarchia degli attori del sistema. Dopo un'attenta analisi ho individuato: cinque \
 attori principali e uno secondario. Gli attori principali da me individuati sono: l'utente non autenticato, l'utente non autorizzato, l'utente \
-di tipo fornitore, l'utente di tipo lago e l'utente di tipo lago \emph{admin}. L'unico utente secondario che ho individuato è Google, in quanto all'interno del sistema \
+di tipo fornitore, l'utente di tipo lago e l'utente di tipo lago \emph{admin}. L'unico utente secondario che ho individuato è Google, in quanto, all'interno del sistema, \
 utilizziamo \emph{Google SSO} come servizio di autenticazione. 
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.5]{usecase/attori}
+    \includegraphics[scale=0.4]{usecase/attori}
     \caption{Gerarchia degli attori di sistema}
     \label{fig:attori}
   \end{center}
@@ -44,7 +47,7 @@ dove per [codice] si intende un identificativo univoco del caso d'uso riportato 
 \subsubsection{Caso d'uso UC0 - Scenario principale}
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.35]{usecase/main-scenario}
+    \includegraphics[scale=0.38]{usecase/main-scenario}
     \caption{UC0: Scenario principale}
     \label{fig:uc0}
   \end{center}
@@ -190,17 +193,24 @@ Come utente Lago o utente di tipo fornitore voglio poter visualizzare la lista d
 %**************************************************************
 \section{Progettazione architetturale}
 
-\subsection{Introduzione}
-L'applicazione è costituita da due parti principali: il \emph{\gls{frontend}} e il \emph{\gls{backend}} che costituiscono rispettivamente il \emph{client} e il \emph{server} nell'architettura \emph{client-server}. \
-All'interno di questa architettura, il \emph{\gls{frontend}} ha il compito interagire con l'utente e di mostrare i dati ottenuti dal \emph{server}. Il \emph{\gls{backend}}, invece, fornisce le \emph{\acrshort{api}} \
-per poter svolgere determinate operazioni e ottenerne i risultati. Entrambi i componenti sono indipendenti tra loro e comunicano utilizzando le richieste \emph{\acrshort{http}}, possono essere di diversi tipi, a \
+L'applicazione è costituita da due parti principali: il \emph{\gls{frontend}} e il \emph{\gls{backend}}, che costituiscono rispettivamente il \emph{client} e il \emph{server} nell'architettura \emph{client-server}. \
+All'interno di questa architettura, il \emph{\gls{frontend}} ha il compito di interagire con l'utente e di mostrare i dati ottenuti dal \emph{server}. Il \emph{\gls{backend}}, invece, fornisce le \emph{\acrshort{api}} \
+per poter svolgere determinate operazioni e ottenerne i risultati. Come si può vedere dalla figura \ref{fig:client-server}, che raffigura il flusso di comunicazione in questa architettura, entrambi i componenti sono indipendenti tra loro e comunicano utilizzando richieste \emph{\acrshort{http}}. Possono essere di diversi tipi a \
 seconda dell'operazione che intendiamo svolgere: 
 \begin{itemize}
-  \item \textbf{\emph{GET}:} per ottenere dei dati dal \emph{server};
+  \item \textbf{\emph{GET}:} per ottenere i dati dal \emph{server};
   \item \textbf{\emph{POST}:} per caricare dei dati sul \emph{server};
-  \item \textbf{\emph{PUT}:} per aggiornare dei dati sul \emph{server};
+  \item \textbf{\emph{PUT}:} per aggiornare i dati sul \emph{server};
   \item \textbf{\emph{DELETE}:} per eliminare dei dati sul \emph{server}.
 \end{itemize} 
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=0.1]{design/client-server}
+    \caption{Flusso di comunicazione \emph{client-server}}
+    \label{fig:client-server}
+  \end{center}
+\end{figure}
 
 Come si evince dalla figura \ref{fig:general-design}, che mostra lo schema architetturale generale, l'applicazione è costituita da tre \emph{packages} principali:
 \begin{itemize}
@@ -216,24 +226,82 @@ Come si evince dalla figura \ref{fig:general-design}, che mostra lo schema archi
     \label{fig:general-design}
   \end{center}
 \end{figure}
+\newpage
+
+L'applicazione, per funzionare, necessita dell'utilizzo di alcune librerie e \emph{frameworks} esterni. Questi garantiscono l'utilizzo di alcune funzionalità che \
+permettono di velocizzare il lavoro e di svolgerlo in maniera più ordinata e sicura. Quelli che ho utilizzato all'interno del progetto, suddivisi per \emph{package}, sono:
+\begin{itemize}
+  \item \textbf{lago-edi-api}
+    \begin{itemize}
+      \item \textbf{\emph{express}:} è il \emph{framework} su cui si basa l'intera applicazione \emph{\gls{backend}}, fornisce le basi per la creazione del \emph{server} e del \emph{routing};
+      \item \textbf{\emph{mongoose}:} è una libreria per creare i modelli degli oggetti che vengono memorizzati su \emph{\textbf{MongoDB}}, inoltre, permette di eseguire le \emph{query} per manipolare i dati del \emph{database};
+      \item \textbf{\emph{passport}:} è una libreria che rende disponibile dei \emph{middlewares} per facilitare l'implementazione dell'autenticazione su applicazioni basate su \emph{\textbf{express}};
+      \item \textbf{\emph{inversify}:} è una libreria che permette di implementare applicazioni che sfruttano il \emph{design pattern \acrfull{ioc}};
+      \item \textbf{\emph{googleapis}:} è una libreria utilizzata per usufruire delle \emph{\acrshort{api}} di Google. Nello specifico, ho utilizzato questa libreria per implementare l'autenticazione degli utenti;
+      \item \textbf{\emph{joi}:} è una libreria che permette di definire degli schemi per validare i dati in ingresso.
+    \end{itemize}
+  \item \textbf{lago-edi-ui}
+    \begin{itemize}
+      \item \textbf{\emph{fuse.js}:} è una libreria che facilita l'implementazione delle funzionalità di ricerca lato \emph{\gls{frontend}};
+      \item \textbf{\emph{styled-components}:} è una libreria che consente di definire dei componenti per la \emph{\gls{ui}} riutilizzabili e con stile personalizzato senza l'utilizzo di file dedicati riducendo le dimensioni del progetto;
+      \item \textbf{\emph{react-data-grid}:} è una libreria fornisce i componenti per la creazione di griglie, uno dei componenti più importanti dell'applicazione \emph{\gls{frontend}};
+      \item \textbf{\emph{react-query}:} è una libreria, per applicazioni basate su \emph{\textbf{React}}, che fornisce le primitive di rete per poter interagire con il \emph{\gls{backend}};
+      \item \textbf{\emph{formik}:} è una libreria, per applicazioni basate su \emph{\textbf{React}}, che facilita la creazione di \emph{form} per l'invio di dati inseriti dall'utente;
+      \item \textbf{\emph{react}:} è la libreria su cui si basa l'intera applicazione \emph{\gls{frontend}}, permette la realizzazione di \emph{user interfaces} basate su componenti.
+    \end{itemize}
+\end{itemize} 
+
+%**************************************************************
+\section{Progettazione di dettaglio}
 
 \subsection{Architettura del \emph{\gls{backend}}}
-Addentrandoci nell'architettura del \emph{\gls{backend}}, come mostrato nella figura \ref{fig:be-design}, possiamo notare come esso sia costituito dai seguenti \emph{packages}:
+Addentrandoci nell'architettura del \emph{package} \textbf{lago-edi-api}, come mostrato nella figura \ref{fig:be-design}, possiamo notare come esso sia costituito dai seguenti \emph{packages}:
 \begin{itemize}
-  \item \textbf{\emph{controllers}:} contiene tutti i componenti per fornire una risposta alle richieste \emph{\acrshort{http}};
+  \item \textbf{\emph{controllers}:} contiene tutti i componenti per fornire una risposta alle richieste \emph{\acrshort{http}} in ingresso. Costituisce la \emph{application logic};
   \item \textbf{\emph{middlewares}:} contiene tutte le funzioni da eseguire prima dell'esecuzione del \emph{controller};
   \item \textbf{\emph{services}:} contiene tutti i componenti necessari per fornire un servizio ai \emph{controllers};
   \item \textbf{\emph{repositories}:} contiene tutti i componenti che si occupano di interagire con il \emph{database};
-  \item \textbf{\emph{models}:} contiene tutti le classi che costituiscono le tipologie di dati utilizzati nell'applicazione.
+  \item \textbf{\emph{models}:} contiene tutte le classi che costituiscono le tipologie di dati utilizzati nell'applicazione.
 \end{itemize}
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=1, width=\textwidth]{design/backend}
+    \includegraphics[scale=0.45]{design/backend}
     \caption{Architettura del \emph{\gls{backend}}}
     \label{fig:be-design}
   \end{center}
 \end{figure}
+
+\subsubsection{\emph{Design pattern} utilizzati}
+Di seguito descrivo i \emph{design pattern} utilizzati nell'architettura del \emph{\gls{backend}}. 
+Per ognuno di essi viene descritto: lo scopo dell'utilizzo e il contesto di applicazione fornendo, inoltre, un diagramma che ne dimostri l'applicazione.
+\begin{itemize}
+  \item \textbf{\emph{\acrlong{mvc}}:} 
+  la figura \ref{fig:mvc-pattern} fornisce una rappresentazione grafica del \emph{design pattern} architetturale \emph{\acrshort{mvc}}. Quest'ultimo, viene utilizzato per mantenere separati i compiti dei diversi componenti,
+  che interpretano i tre ruoli principali: \emph{Model, View} e \emph{Controller}. Nel contesto applicativo, il \emph{pattern \acrshort{mvc}}, costituisce l'architettura generale del \emph{\gls{backend}}, questo perché il
+  \emph{framework \textbf{express}} è basato su tale architettura. Durante l'implementazione non è stata implementata alcuna \emph{view}, in quanto, il \emph{\gls{backend}} si preoccupa esclusivamente di rendere disponibili 
+  le \emph{\acrshort{api}} al \emph{\gls{frontend}} e quindi, risulta inutile, per questo motivo nella figura sottostante è evidenziata in rosso.
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=0.45]{design/patterns/mvc}
+      \caption{Contesto di utilizzo del \emph{design pattern \acrshort{mvc}}}
+      \label{fig:mvc-pattern}
+    \end{center}
+  \end{figure}
+  \item \textbf{\emph{Dependency Injection}:}
+  nella figura \ref{fig:di-pattern} è raffigurato il diagramma delle classi del \emph{design pattern} architetturale \emph{Dependency Injection}. Questo \emph{design pattern} è utilizzato per separare il comportamento di un componente dalla 
+  risoluzione delle sue dipendenze, le quali, in questo modo, vengono minimizzate. Nel contesto applicativo, viene impiegato nell'architettura generale del
+  \emph{package} \textbf{lago-edi-api} per ottenere \emph{software} più facile da testare e manutenere. 
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=0.35]{design/patterns/di}
+      \caption{Contesto di utilizzo del \emph{design pattern Dependency Injection}}
+      \label{fig:di-pattern}
+    \end{center}
+  \end{figure}
+\end{itemize}
 
 \subsection{Architettura del \emph{\gls{frontend}}}
 Per quanto concerne il \emph{\gls{frontend}}, l'architettura è rappresentata nella figura \ref{fig:fe-design}. \
@@ -248,44 +316,122 @@ Il \emph{package} \textbf{lago-edi-ui} è composto dai seguenti \emph{subpackage
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=1, width=\textwidth]{design/frontend}
+    \includegraphics[scale=0.45]{design/frontend}
     \caption{Architettura del \emph{\gls{frontend}}}
     \label{fig:fe-design}
   \end{center}
 \end{figure}
 
+\subsubsection{\emph{Design pattern} utilizzati}
+Di seguito descrivo i \emph{design pattern} utilizzati nell'architettura del \emph{\gls{frontend}}. 
+Per ognuno di essi viene descritto: lo scopo dell'utilizzo e il contesto di applicazione fornendo, inoltre, un diagramma che ne dimostri l'applicazione.
+\begin{itemize}
+  \item \textbf{\emph{Builder}:}
+  la figura \ref{fig:builder-pattern} mostra il diagramma relativo al \emph{design pattern} creazionale \emph{Builder}. Questo \emph{design pattern} permette di separare la costruzione di un oggetto complesso dalla
+  sua rappresentazione e fornisce un controllo migliore del processo di costruzione, in quanto fornisce una costruzione \emph{step-by-step}. Nel contesto applicativo, è impiegato per la creazione delle colonne
+  che compongono la griglia di un fornitore. Grazie al suo utilizzo, l'applicazione sarà in grado di creare nuove tipologie di colonne, senza apportare eccessive modifiche.
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=0.35]{design/patterns/builder}
+      \caption{Contesto di utilizzo del \emph{design pattern Builder}}
+      \label{fig:builder-pattern}
+    \end{center}
+  \end{figure}
+  \item \textbf{\emph{Factory}:}
+  la figura \ref{fig:factory-pattern} mostra il diagramma relativo al \emph{design pattern} creazionale \emph{Factory}. Quest'ultimo separa la creazione di un oggetto dalla sua rappresentazione senza esporre la logica 
+  di creazione. Nel contesto applicativo, viene adottato per la costruzione dei seguenti componenti della griglia del fornitore: le celle, gli \emph{editor} delle celle e i \emph{formatter} delle celle.
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=0.35]{design/patterns/factory}
+      \caption{Contesto di utilizzo del \emph{design pattern Factory}}
+      \label{fig:factory-pattern}
+    \end{center}
+  \end{figure}
+\end{itemize}
+
 \subsection{Struttura del \emph{database}}
-In questa sezione illustro la struttura del \emph{databse}.
+Come \emph{database} ho utilizzato il \emph{\acrshort{dbms} NoSQL \textbf{MongoDB}}, mentre, per interagire con esso, ho impiegato la libreria \textbf{Mongoose}. Nella figura \ref{fig:db-design} è \
+mostrato il diagramma \emph{\acrshort{er}} del \emph{database} che ho realizzato utilizzando l'applicazione \textbf{\href{https://dbdiagram.io/}{dbdiagram.io}}. Di seguito fornisco una breve \
+descrizione di ogni \emph{collection} del \emph{database}:
 
-%**************************************************************
-\section{Progettazione di dettaglio}
+\begin{itemize}
+  \item \textbf{\emph{users}:} memorizza tutti i dati degli utenti, compreso fornitore a cui ha accesso, nel caso esso sia di tipo fornitore;
+  \item \textbf{\emph{suppliers}:} memorizza i dati dei fornitori, inclusa la configurazione delle colonne della tabella;
+  \item \textbf{\emph{order\_rows}:} memorizza i dati di tutti gli ordini relativi ad ogni fornitore.
+\end{itemize}
 
-\subsection{API per l'autenticazione}
-In questa sezione descrivo le API necessarie per l'autenticazione di un utente.
-
-\subsection{API per la manipolazione dei dati della griglia}
-In questa sezione descrivo le API per la visualizzazione, la modifica e l'eliminazione dei dati della griglia.
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=0.28]{design/database}
+    \caption{Schema del \emph{database}}
+    \label{fig:db-design}
+  \end{center}
+\end{figure}
 
 \subsection{Diagrammi di sequenza}
-In questa sezione illustro i diagrammi di sequenza relativi all'autenticazione e alla manipolazione dei dati della griglia.
+Questa sezione riporta uno dei diagrammi di sequenza realizzati, durante il periodo di \emph{stage}, mediante l'utilizzo del \emph{software \textbf{StarUML}}.
+Nella figura \ref{fig:auth-sequence} viene mostrato il diagramma di sequenza relativo all'autenticazione, il più importante che ho realizzato, e che mi ha permesso di implementare la soluzione migliore possibile.
 
-%**************************************************************
-\section{Codifica}
-
-\subsection{Autenticazione}
-In questa sezione illustro la porzione di codice necessaria per l'autenticazione.
-
-\subsection{Griglia del fornitore}
-In questa sezione illustro le porzioni di codice necessarie per la realizzazione della griglia del fornitore.
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=1, width=\textwidth]{design/auth-sequence}
+    \caption{Diagramma di sequenza per l'autenticazione con Google}
+    \label{fig:auth-sequence}
+  \end{center}
+\end{figure}
 
 %**************************************************************
 \section{Verifica e validazione}
+In questa sezione descrivo le attività di verifica e validazione, svolte durante il periodo di \emph{stage}.
+L'attività di verifica, a sua volta, è suddivisa in due sotto-attività che sono: l'analisi statica e l'analisi dinamica, per ognuna delle quali dedico una sezione.
 
 \subsection{Analisi statica}
-In questa sezione descrivo gli strumenti utilizzate per l'analisi statica.
+L'analisi statica permette di valutare la correttezza dei componenti senza la loro esecuzione.
+Durante il processo di sviluppo ho utilizzato alcuni strumenti di analisi statica per individuare gli errori più facilmente. Di seguito fornisco un elenco degli strumenti utilizzati:
+\begin{itemize}
+  \item \textbf{\textbf{WebStorm}:} questo \emph{\acrshort{ide}} permette di visualizzare \emph{warning} ed errori presenti all'interno del codice;
+  \item \textbf{\textbf{ESLint}:} è un \emph{tool} che permette di trovare degli errori nel codice basandosi su regole definite in fase di configurazione.
+\end{itemize}
+Grazie all'utilizzo di questi strumenti, sono riuscito a risolvere diversi problemi che ho avuto durante lo sviluppo del \emph{\gls{frontend}} e nell'utilizzo della libreria \emph{\textbf{Mongoose}}.
+\textbf{\emph{WebStorm}}, inoltre, fornisce la funzionalità di analizzare il testo scritto, permettendo l'implementazione di pagine web senza errori di scrittura.
 
-\subsection{\emph{Unit Test}}
-In questa sezione descrivo il framework Jest e illustro i risultati dei test effettuati con la \emph{feature code covarage}.
+\subsection{Analisi dinamica}
+L'analisi dinamica consente di valutare la correttezza dei componenti durante la sua esecuzione. 
+È uno degli aspetti principali del processo di verifica. 
+Questa attività viene svolta, principalmente, mediante l'esecuzione di \emph{tests}, che possono essere di diversi tipi: di unità, di integrazione e di sistema.
+Durante il periodo di \emph{stage} ho implementato solo \emph{test} di unità, a causa del poco tempo a disposizione per completare il lavoro.
+Questo tipo di \emph{test} ha lo scopo di verificare il corretto funzionamento della più piccola unità di \emph{software}.
+Per la loro implementazione ho utilizzato il \emph{framework \textbf{Jest}}. Ogni test è strutturato nel seguente modo:
+
+\begin{enumerate}
+  \item Si definisce il gruppo dei \emph{tests} da implementare mediante la funzione \textbf{\emph{describe}}:
+  \item Vengono invocate le funzioni \textbf{\emph{beforeAll}, \emph{beforeEach}, \emph{afterAll}, \emph{afterEach}} per configurare le variabili necessarie e fare il \emph{mocking} delle dipendenze;
+  \item Si definiscono i \emph{test} da eseguire mediante l'invocazione della funzione \emph{\textbf{it}};
+  \item All'interno del \emph{test}, si invoca la funzione \emph{\textbf{describe}} per definire l'esito atteso.
+\end{enumerate}
+
+La porzione di codice \ref{code:test-structure} mostra come ho strutturato i \emph{tests} durante lo \emph{stage}.
+
+\begin{lstlisting}[caption=Esempio di struttura di \emph{test}, label={code:test-structure}, captionpos=b]
+  describe("Testing UploadUsersValidator", () => {
+
+    beforeAll(async () => {
+      // moking delle dipendenze e configurazione delle variabili
+      return 
+    })
+
+    // Eventuale invocazione di:
+    //  - beforeEach
+    //  - afterEach
+    //  - afterAll
+
+    it("Call with wrong role value should throw error", async () => {
+      // implementazione test
+    })
+  })
+\end{lstlisting}
 
 %**************************************************************
 \section{Prodotto finale}
