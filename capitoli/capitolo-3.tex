@@ -83,6 +83,7 @@ dove per [codice] si intende un identificativo univoco del caso d'uso riportato 
 
 \subsection{\emph{User Stories}}
 Grazie alla definizione dei casi d'uso ho estratto le \emph{user stories}, delle quali ho provveduto allo svolgimento delle attività in esse specificate durante il periodo di \emph{stage}. 
+In totale ne ho individuate 16: 12 obbligatorie e 4 desiderabili.
 Di seguito sono riportate quelle relative alle funzionalità principali.
 
 \subsubsection{Login con \emph{Google SSO} (5)}
@@ -273,6 +274,8 @@ Addentrandoci nell'architettura del \emph{package} \textbf{edi-api}, come mostra
   \end{center}
 \end{figure}
 
+L'intero \emph{package} è costituito da 22 classi e 13 interfacce.
+
 \subsubsection{\emph{Design pattern} utilizzati}
 Di seguito descrivo i \emph{design pattern} che ho utilizzato nell'architettura del \emph{\gls{backend}}. 
 Per ognuno di essi descrivo lo scopo dell'utilizzo e il contesto di applicazione fornendo, inoltre, un diagramma che ne dimostri l'applicazione.
@@ -323,6 +326,8 @@ Il \emph{package} \textbf{edi-ui} è composto dai seguenti \emph{subpackages}:
     \label{fig:fe-design}
   \end{center}
 \end{figure}
+
+L'intero \emph{package} è costituito da 1 classe e 42 interfacce.
 
 \subsubsection{\emph{Design pattern} utilizzati}
 Di seguito descrivo i \emph{design pattern} che ho utilizzato nell'architettura del \emph{\gls{frontend}}. 
@@ -441,6 +446,16 @@ La porzione di codice \ref{code:test-structure} mostra come ho strutturato i \em
   })
 \end{lstlisting}
 
+
+A causa della breve durata dello stage e della quantità di componenti da implementare, non sono riuscito a svolgere tutti i \emph{test} di unità necessari a verificare l'intero prodotto finale.
+L'unico componente in cui sono riuscito a implementare quasi tutti i \emph{test} di unità è il \emph{\gls{backend}}.
+Qui ho implementato 37 \emph{tests}, la totalità di essi hanno avuto esito positivo e mi hanno permesso di valutare 185 righe di codice su 258, ovvero, il 74.59\%.
+Nel \emph{package} \textbf{edi-commons} ho implementato 1 \emph{test} per testare le funzioni di utilità relative agli utenti, il quale ha avuto successo. 
+Con questo \emph{test} ho valutato 15 righe di codice su 15, ovvero il 100\%.
+Per quanto riguarda il \emph{\gls{frontend}} ho implementato 3 \emph{tests} per verificare le funzioni di utilità, relative al confronto delle date e per l'accesso al \emph{local storage} del \emph{browser}, e la classe \emph{Builder}.
+Grazie alla loro esecuzione con successo, ho potuto valutare 117 righe di codice su 117, ovvero, il 100\%.
+Il numero di \emph{tests} per questo componente è molto basso in confronto a quello del \emph{\gls{backend}}, questo perché non ho testato alcun componente per la \emph{\acrshort{ui}}, in quanto, avrebbe sottratto troppo tempo alla codifica, compromettendo il completamento del prodotto.
+
 %**************************************************************
 \section{Prodotto finale}
 L'applicazione implementata durante il periodo di \emph{stage} fornisce all'azienda committente, e ai suoi fornitori, una \emph{dashboard} per la visualizzazione degli ordini in ingresso e in uscita.
@@ -470,7 +485,7 @@ Con questo componente l'utente può svolgere le seguenti operazioni:
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.32, width=\textwidth]{screenshots/edi-user-dashboard.png}
+    \includegraphics[scale=0.25]{screenshots/edi-user-dashboard.png}
     \caption{\emph{Dashboard} per l'utente di tipo fornitore}
     \label{fig:dashboard}
   \end{center}
@@ -478,10 +493,11 @@ Con questo componente l'utente può svolgere le seguenti operazioni:
 
 \newpage
 \begin{figure}[!ht]
-  \includegraphics[scale=0.32]{screenshots/attachments-list.png}
-  \caption{Lista degli allegati per un ordine}
-  \label{fig:attachments-list}
-  \centering
+  \begin{center}
+    \includegraphics[scale=0.25]{screenshots/attachments-list.png}
+    \caption{Lista degli allegati per un ordine}
+    \label{fig:attachments-list}
+  \end{center}
 \end{figure}
 
 \subsection{Personale}
@@ -490,10 +506,9 @@ A differenza loro, però, come si osserva dalla figura \ref{fig:lago-dashboard},
 Per ogni fornitore nella lista è possibile visionare la relativa griglia degli ordini.
 È possibile, inoltre, ricercare i fornitori mediante l'apposito campo di \emph{input}, situato sopra la lista.
 
-\newpage
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.25, width=\textwidth]{screenshots/suppliers-list.png}
+    \includegraphics[scale=0.25]{screenshots/suppliers-list.png}
     \caption{\emph{Dashboard} per gli utenti di tipo personale}
     \label{fig:lago-dashboard}
   \end{center}
@@ -517,12 +532,13 @@ La figura \ref{fig:lago-grid-delete}, mostra gli ordini selezionati, pronti per 
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.45, width=\textwidth]{screenshots/lago-grid-delete.png}
+    \includegraphics[scale=0.25]{screenshots/lago-grid-delete.png}
     \caption{Griglia con gli ordini da eliminare}
     \label{fig:lago-grid-delete}
   \end{center}
 \end{figure}
 
+\newpage
 \subsection{Amministratori}
 Gli utenti amministratori si differenziano degli altri in quanto hanno la possibilità di gestire gli utenti.
 La \emph{dashboard} relativa a questo tipo di utenza, ha una struttura molto minimale, è costituita da due \emph{tabs} per accedere o alla lista degli utenti o alla lista dei fornitori.
@@ -532,7 +548,7 @@ Questo \emph{form} consente, inoltre, la possibilità di cambiare il ruolo dell'
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.45, width=\textwidth]{screenshots/users-list.png}
+    \includegraphics[scale=0.25]{screenshots/users-list.png}
     \caption{Lista degli utenti}
     \label{fig:users-list}
   \end{center}
