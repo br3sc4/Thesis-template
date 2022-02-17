@@ -1,11 +1,11 @@
-        %%******************************************%%
-        %%                                          %%
-        %%        Modello di tesi di laurea         %%
-        %%            di Andrea Giraldin            %%
-        %%                                          %%
-        %%             2 novembre 2012              %%
-        %%                                          %%
-        %%******************************************%%
+%%******************************************%%
+%%                                          %%
+%%        Modello di tesi di laurea         %%
+%%            di Andrea Giraldin            %%
+%%                                          %%
+%%             2 novembre 2012              %%
+%%                                          %%
+%%******************************************%%
 
 
 % I seguenti commenti speciali impostano:
@@ -22,11 +22,13 @@
 % PDF/A filecontents
 \RequirePackage{filecontents}
 \begin{filecontents*}{\jobname.xmpdata}
-  \Title{Document’s title}
-  \Author{Author’s name}
+  \Title{Sviluppo di Web App per la gestione degli ordini fornitore}
+  \Author{Lorenzo Brescanzin}
   \Language{it-IT}
-  \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
+  \Subject{Il presente documento descrive il lavoro svolto durante il periodo di \emph{stage}, della durata di circa trecento ore, dal laureando Lorenzo Brescanzin presso l'azienda Wavelop SRLS.
+  Il progetto, commissionato da un'azienda produttrice di mobili, prevedeva l'analisi, la progettazione e la codifica di un'applicazione \emph{web} per automatizzare l'interscambio di documenti di trasporto tra l'azienda e i suo fornitori, per tutti i fornitori non aventi un sistema proprio interno di \emph{\acrshort{edi}}.
+  L'intero progetto è stato implementato utilizzando tecnologie attuali, come \emph{React, NodeJS e MongoDB}.}
+  \Keywords{Fornitori\sep Ordini\sep Gestione\sep Web App}
 \end{filecontents*}
 
 \documentclass[10pt,                    % corpo del font principale
@@ -125,9 +127,9 @@
 \frontmatter
 \input{inizio-fine/frontespizio}
 \input{inizio-fine/colophon}
-%\input{inizio-fine/dedica}
-%\input{inizio-fine/sommario}
-%\input{inizio-fine/ringraziamenti}
+% \input{inizio-fine/dedica}
+\input{inizio-fine/sommario}
+\input{inizio-fine/ringraziamenti}
 \input{inizio-fine/indici}
 \cleardoublepage
 
@@ -148,5 +150,5 @@
 %\backmatter
 \printglossary[toctitle=Glossario]
 \printglossary[type=\acronymtype, toctitle=Acronimi]
-%\input{inizio-fine/bibliografia}
+\input{inizio-fine/bibliografia}
 \end{document}
