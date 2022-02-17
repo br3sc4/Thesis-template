@@ -26,9 +26,10 @@ utilizziamo \emph{Google SSO} come servizio di autenticazione.
 \end{figure}
 
 \subsection{Casi d'uso}
-Durante l'attività di analisi ho definito diversi diagrammi dei casi d'uso mediante il linguaggio \emph{\acrshort{uml}}. Tutti i diagrammi sono contenuti all'interno \
-del documento Analisi dei Requisiti aziendale. In questa sezione mostrerò solo il caso d'uso più generale, per dare un'idea di ciò che è possibile fare all'interno \
-dell'applicazione. Ogni caso d'uso segue la seguente denominazione:
+Durante l'attività di analisi ho definito diversi diagrammi dei casi d'uso mediante il linguaggio \emph{\acrshort{uml}}.
+Tutti i diagrammi sono contenuti all'interno del documento Analisi dei Requisiti aziendale. 
+In questa sezione mostrerò solo il caso d'uso più generale, per dare un'idea di ciò che è possibile fare all'interno dell'applicazione. 
+Ogni caso d'uso segue la seguente denominazione:
 
 \begin{center}
   UC[codice]
@@ -60,7 +61,7 @@ dove per [codice] si intende un identificativo univoco del caso d'uso riportato 
       \item visualizzare la \emph{dashboard};
       \item modificare una riga;
       \item effettuare la ricerca mediante filtri;
-      \item effettuare la modifica multipla di cella;
+      \item effettuare la modifica multipla di celle;
       \item visualizzare gli allegati relativi ad un ordine.
     \end{itemize}
     Un utente di tipo personale, oltre alle funzionalità dell'utente fornitore, può visualizzare la lista dei fornitori. Un utente di tipo \emph{admin}, infine, oltre alle funzionalità dell'utente di tipo personale, può visualizzare la lista degli utenti registrati sulla piattaforma;
@@ -424,11 +425,11 @@ Per la loro implementazione ho utilizzato il \emph{framework \textbf{Jest}}. Ogn
   \item Si definisce il gruppo dei \emph{tests} da implementare mediante la funzione \textbf{\emph{describe}}:
   \item Vengono invocate le funzioni \textbf{\emph{beforeAll}, \emph{beforeEach}, \emph{afterAll}, \emph{afterEach}}. per configurare le variabili necessarie e fare il \emph{mocking} delle dipendenze;
   \item Si definiscono i \emph{test} da eseguire mediante l'invocazione della funzione \emph{\textbf{it}};
-  \item All'interno del \emph{test}, si invoca la funzione \emph{\textbf{describe}}, per definire l'esito atteso.
+  \item All'interno del \emph{test}, si invoca la funzione \emph{\textbf{expect}}, per definire l'esito atteso.
 \end{enumerate}
 
 La porzione di codice \ref{code:test-structure} mostra come ho strutturato i \emph{tests} durante lo \emph{stage}.
-
+\newpage
 \begin{lstlisting}[caption=Esempio di struttura di \emph{test}, label={code:test-structure}, captionpos=b]
   describe("Testing UploadUsersValidator", () => {
 
@@ -472,7 +473,7 @@ Nel caso, l'utente, non sia ancora abilitato viene visualizzato un errore.
 
 \subsection{Fornitori}
 L'utente di tipo fornitore è l'utente che può svolgere solo le funzionalità di base.
-La figura \ref{fig:dashboard} mostra l'unica pagina che, l'utente, può visualizzare, ovvero, la \emph{dashboard}.
+La figura \ref{fig:dashboard} mostra l'unica pagina che l'utente può visualizzare, ovvero, la \emph{dashboard}.
 Quest'ultima rappresenta l'\emph{homepage} per questa tipologia di utente, per le altre tipologie sarà differente.
 In questa pagina troviamo il componente principale dell'applicazione: la griglia con i dati degli ordini.
 Con questo componente l'utente può svolgere le seguenti operazioni:
@@ -487,7 +488,7 @@ Con questo componente l'utente può svolgere le seguenti operazioni:
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.27]{screenshots/edi-user-dashboard.png}
+    \includegraphics[scale=0.23]{screenshots/edi-user-dashboard.png}
     \caption{\emph{Dashboard} per l'utente di tipo fornitore}
     \label{fig:dashboard}
   \end{center}
@@ -496,7 +497,7 @@ Con questo componente l'utente può svolgere le seguenti operazioni:
 \newpage
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.25]{screenshots/attachments-list.png}
+    \includegraphics[scale=0.23]{screenshots/attachments-list.png}
     \caption{Lista degli allegati per un ordine}
     \label{fig:attachments-list}
   \end{center}
@@ -510,12 +511,12 @@ Per ogni fornitore nella lista è possibile visionare la relativa griglia degli 
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.25]{screenshots/suppliers-list.png}
+    \includegraphics[scale=0.23]{screenshots/suppliers-list.png}
     \caption{\emph{Dashboard} per gli utenti di tipo personale}
     \label{fig:lago-dashboard}
   \end{center}
 \end{figure}
-
+\newpage
 Un'altra funzionalità di cui godono gli utenti di tipo personale, è la possibilità di passare alla visualizzazione degli ordini di un altro fornitore direttamente dalla griglia.
 La figura \ref{fig:supplier-swicher} mostra il componente che rende possibile questa operazione.
 
@@ -534,7 +535,7 @@ La figura \ref{fig:lago-grid-delete}, mostra gli ordini selezionati, pronti per 
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.25]{screenshots/lago-grid-delete.png}
+    \includegraphics[scale=0.23]{screenshots/lago-grid-delete.png}
     \caption{Griglia con gli ordini da eliminare}
     \label{fig:lago-grid-delete}
   \end{center}
@@ -550,7 +551,7 @@ Questo \emph{form} consente, inoltre, la possibilità di cambiare il ruolo dell'
 
 \begin{figure}[!ht]
   \begin{center}
-    \includegraphics[scale=0.25]{screenshots/users-list.png}
+    \includegraphics[scale=0.23]{screenshots/users-list.png}
     \caption{Lista degli utenti}
     \label{fig:users-list}
   \end{center}
